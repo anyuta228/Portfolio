@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Lock, KeyRound, Eye, EyeOff, Sparkles, ShieldAlert } from 'lucide-react';
+import { Eye, EyeOff, ShieldAlert } from 'lucide-react';
 
 interface GatekeeperScreenProps {
   onUnlock: () => void;
@@ -90,45 +90,48 @@ export const GatekeeperScreen: React.FC<GatekeeperScreenProps> = ({ onUnlock }) 
         ))}
       </div>
 
-      {/* Main Glass Card (Strictly bg-[#0e1118]/80, backdrop-blur-xl, ZERO white borders) */}
+      {/* Main Glass Card (Spacious, bg-[#0a0d14]/90 backdrop-blur-2xl, strictly border-0) */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full max-w-[440px] bg-[#0e1118]/80 backdrop-blur-xl rounded-[28px] p-8 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-0"
+        style={{
+          boxShadow:
+            '0 30px 80px rgba(0, 0, 0, 0.85), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12), inset 0 0 40px -10px rgba(138, 180, 248, 0.08)',
+        }}
+        className="relative z-10 w-full max-w-[460px] bg-[#0a0d14]/90 backdrop-blur-2xl rounded-[32px] p-10 md:p-12 border-0"
       >
-        {/* Subtle Ambient Radial Highlight on Card */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent rounded-[28px] pointer-events-none" />
-
         {/* Card Content */}
         <div className="relative z-10 flex flex-col items-center text-center">
           
-          {/* Eclipse Moon Brand Emblem */}
-          <div className="relative mb-6">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0c0f16] to-[#121722] flex items-center justify-center shadow-[0_0_35px_rgba(138,180,248,0.15)] relative">
-              {/* Glowing Arc Segment */}
-              <div className="absolute inset-0 rounded-full border-t border-r border-[#8AB4F8]/70 shadow-[0_0_15px_#8AB4F8]" />
-              <Lock className="w-6 h-6 text-[#8AB4F8]/90" />
-            </div>
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#8AB4F8]/20 flex items-center justify-center">
-              <KeyRound className="w-3 h-3 text-[#8AB4F8]" />
-            </div>
+          {/* Miniature optical light point over brand */}
+          <div className="mb-6 flex items-center justify-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#8AB4F8] shadow-[0_0_12px_#8AB4F8,0_0_24px_rgba(138,180,248,0.7)] animate-pulse" />
           </div>
 
-          {/* Brand & Subtitle */}
-          <h1 className="font-display font-medium text-4xl sm:text-5xl text-white tracking-tight drop-shadow-[0_0_24px_rgba(138,180,248,0.4)]">
+          {/* Brand Heading «атома» with signature lunar corona glow */}
+          <h1
+            style={{
+              textShadow:
+                '0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(138, 180, 248, 0.25)',
+            }}
+            className="font-display font-medium text-4xl sm:text-5xl text-white tracking-tight leading-none"
+          >
             атома
           </h1>
-          <p className="mt-2 text-xs sm:text-sm font-sans tracking-widest uppercase text-white/50">
+
+          {/* Subtitle: тонкий, разреженный sans-serif, БЕЗ ТОЧЕК */}
+          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-neutral-400 font-sans font-light">
             Вход в приватное портфолио
           </p>
 
-          <p className="mt-3 text-xs text-neutral-400 font-sans leading-relaxed max-w-xs">
-            Для доступа к коммерческим кейсам, продуктовой телеметрии и дизайн-системам введите ключ доступа
+          {/* Clean description without telemetry jargon */}
+          <p className="mt-3 text-xs sm:text-sm text-neutral-400 font-sans leading-relaxed max-w-sm font-normal">
+            Для доступа к коммерческим кейсам и дизайн-системам введите ключ доступа
           </p>
 
           {/* Form with Password Input */}
-          <form onSubmit={handleSubmit} className="w-full mt-7 space-y-4">
+          <form onSubmit={handleSubmit} className="w-full mt-8 space-y-4">
             <motion.div
               animate={
                 hasError
@@ -150,12 +153,12 @@ export const GatekeeperScreen: React.FC<GatekeeperScreenProps> = ({ onUnlock }) 
                 }}
                 placeholder="Введите ключ доступа..."
                 autoComplete="current-password"
-                className={`w-full px-5 py-4 pr-12 rounded-2xl bg-black/60 text-white placeholder-white/30 font-sans text-sm outline-none transition-all duration-300 border-0 ${
+                className={`w-full px-5 py-3.5 pr-12 rounded-xl bg-[#050608] text-white placeholder:text-neutral-500 font-sans text-sm outline-none transition-all duration-300 border-0 ${
                   hasError
-                    ? 'ring-1 ring-red-500/60 shadow-[0_0_25px_rgba(239,68,68,0.25)] text-red-200'
+                    ? 'ring-1 ring-red-500/60 shadow-[0_0_20px_rgba(239,68,68,0.25)] text-red-200'
                     : isSuccess
                     ? 'ring-1 ring-[#8AB4F8]/70 shadow-[0_0_25px_rgba(138,180,248,0.35)]'
-                    : 'focus:ring-1 focus:ring-[#8AB4F8]/50 focus:bg-black/80'
+                    : 'focus:ring-1 focus:ring-[#8AB4F8]/50 focus:shadow-[0_0_20px_rgba(138,180,248,0.15)]'
                 }`}
               />
 
@@ -163,7 +166,7 @@ export const GatekeeperScreen: React.FC<GatekeeperScreenProps> = ({ onUnlock }) 
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-white/40 hover:text-white transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-white/40 hover:text-white transition-colors cursor-pointer"
                 title={showPassword ? 'Скрыть ключ' : 'Показать ключ'}
               >
                 {showPassword ? (
@@ -193,21 +196,19 @@ export const GatekeeperScreen: React.FC<GatekeeperScreenProps> = ({ onUnlock }) 
             <button
               type="submit"
               disabled={isSuccess}
-              className={`w-full py-3.5 px-6 rounded-2xl font-sans text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 active:scale-[0.98] ${
+              className={`w-full py-3.5 px-6 rounded-xl font-sans text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 active:scale-[0.98] border-0 cursor-pointer ${
                 isSuccess
-                  ? 'bg-[#8AB4F8] text-[#08090C] shadow-[0_0_25px_rgba(138,180,248,0.6)]'
-                  : 'bg-white text-black hover:bg-[#D1E1FF] hover:shadow-[0_0_25px_rgba(138,180,248,0.4)]'
+                  ? 'bg-[#8AB4F8] text-[#08090C] shadow-[0_0_30px_rgba(138,180,248,0.5)]'
+                  : 'bg-white text-black hover:bg-neutral-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.35)]'
               }`}
             >
-              <span>{isSuccess ? 'Доступ подтвержден...' : 'Разблокировать'}</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{isSuccess ? 'Доступ подтвержден...' : 'Разблокировать →'}</span>
             </button>
           </form>
 
-          {/* Discreet Hint */}
-          <div className="mt-6 flex items-center gap-1.5 text-[11px] font-sans text-white/30">
-            <Sparkles className="w-3 h-3 text-[#8AB4F8]/50" />
-            <span>Анна Агабекян • Продуктовый UX/UI дизайн</span>
+          {/* Bottom Copyright separated by mt-8 */}
+          <div className="mt-8 flex items-center justify-center text-xs font-sans text-neutral-500 tracking-normal">
+            <span>Anna Aghabekyan • Middle+ Product Designer</span>
           </div>
 
         </div>
