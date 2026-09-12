@@ -174,7 +174,7 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
   };
 
   return (
-    <section id="works-section" className="py-24 sm:py-32 bg-[#08090C] relative">
+    <section id="works-section" className="scroll-mt-24 py-24 sm:py-32 bg-[#08090C] relative">
       <div className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Section Header: Pure Swiss Typography */}
@@ -189,7 +189,7 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
                 <span className="w-12 h-px bg-white/20" />
-                01 / Selected Projects
+                01 / Избранные проекты (Featured Projects)
               </span>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95] text-white eclipse-glow">
                 Избранные<br />

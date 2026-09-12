@@ -3,14 +3,15 @@ import { ProjectCase } from '../types.ts';
 import { 
   ArrowLeft, 
   TrendingUp, 
-  ShieldCheck, 
-  Zap, 
-  CheckCircle2, 
-  AlertCircle, 
-  Cpu, 
-  Gamepad2, 
-  Wallet, 
-  Repeat
+  Play, 
+  Figma, 
+  Smartphone, 
+  Send, 
+  Sparkles, 
+  Image as ImageIcon,
+  CheckCircle2,
+  Clock,
+  Layers
 } from 'lucide-react';
 
 interface PpkasCaseStudyProps {
@@ -32,10 +33,38 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
 
+  const STICKERS = [
+    {
+      file: './images/cases/ppkas/telegram/sticker_1_hi.png',
+      title: 'Приветствие / Hi!',
+      badge: 'Sticker // 01'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_2_shock.png',
+      title: 'Удивление & Шок',
+      badge: 'Sticker // 02'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_3_thinking.png',
+      title: 'Размышление & Анализ',
+      badge: 'Sticker // 03'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_4_laugh.png',
+      title: 'Радость & Победа',
+      badge: 'Sticker // 04'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_5_moon_flag.png',
+      title: 'Флаг на Луне (Kaspa P2E)',
+      badge: 'Sticker // 05'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#08090C] text-[#F8FAFC] selection:bg-[#8AB4F8] selection:text-[#08090C] relative font-sans">
       
-      {/* Top Floating Bar: Single Clean Back Button */}
+      {/* Top Floating Bar: Single Clean Back Button (Zero clutter) */}
       <header className="sticky top-0 z-40 bg-[#08090C]/90 backdrop-blur-md border-b border-white/[0.06] transition-all">
         <div className="max-w-[1680px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
           <button
@@ -50,24 +79,24 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
           <div className="hidden sm:flex items-center gap-3 text-xs text-white/50 font-sans tracking-wide">
             <span>PPKAS</span>
             <span className="text-white/20">•</span>
-            <span>Kaspa Web3 Ecosystem</span>
+            <span>Kaspa Web3 P2E Ecosystem</span>
           </div>
         </div>
       </header>
 
-      {/* Main Structured Longread */}
+      {/* Main Longread Content */}
       <main className="max-w-[1680px] mx-auto px-6 md:px-12 pt-10 sm:pt-16 pb-28 space-y-20 sm:space-y-28">
 
         {/* ========================================================================= */}
-        {/* БЛОК 1: Hero и метаданные                                                */}
+        {/* БЛОК 1: Hero & Продуктовые метрики                                       */}
         {/* ========================================================================= */}
-        <section className="space-y-8">
+        <section className="scroll-mt-24 space-y-8">
           
           {/* Eyebrow & Badges */}
           <div className="flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] text-[#8AB4F8] text-xs font-sans font-medium uppercase tracking-wider">
-              <Gamepad2 className="w-3.5 h-3.5" />
-              Web3 & GameFi Case Study
+              <Sparkles className="w-3.5 h-3.5" />
+              01 / Web3 Case Study
             </span>
             <span className="text-white/20">•</span>
             <span className="text-xs sm:text-sm font-sans font-medium text-white/60">Kaspa Network</span>
@@ -77,87 +106,20 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
 
           {/* Heading H1 (No trailing dot) */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-light text-white tracking-tight leading-[1.08] max-w-5xl eclipse-glow">
-            PPKAS — Архитектура онбординга и финансовых циклов в Web3 P2E экосистеме
+            PPKAS — Web3 P2E Экосистема на базе Kaspa
           </h1>
 
-          {/* Role & Context Row */}
+          {/* Metadata Row */}
           <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-sm sm:text-base text-white/70 font-sans pt-1">
-            <div>
-              <span className="text-white/40">Роль: </span>
-              <strong className="text-white font-medium">Middle+ Product Designer</strong>{' '}
-              <span className="text-white/60">(в сотрудничестве с DevSecOps, PM и Core инженерами)</span>
-            </div>
+            <span>Middle+ Product Designer</span>
+            <span className="text-white/20">•</span>
+            <span>Апрель 2025 – Май 2026</span>
+            <span className="text-white/20">•</span>
+            <span className="text-neutral-300">Web3, P2E, DevSecOps</span>
           </div>
 
-          {/* Tags Line */}
-          <div className="flex flex-wrap items-center gap-2 pt-1">
-            {[
-              'Web3',
-              'Kaspa Blockchain',
-              'P2E Gaming',
-              'UX Audit',
-              'FinTech Mechanics'
-            ].map((tag, idx) => (
-              <span
-                key={idx}
-                className="px-3.5 py-1.5 rounded-lg bg-white/[0.04] text-xs sm:text-sm font-sans text-neutral-300 font-normal"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Intro Essence Box */}
-          <div
-            onMouseMove={handleMouseMove}
-            className="bento-card p-8 sm:p-10 bg-[#0e1118] border-0"
-          >
-            <div className="max-w-4xl space-y-3">
-              <span className="text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium">
-                Вводная суть
-              </span>
-              <p className="text-lg sm:text-2xl text-white/90 font-light leading-relaxed font-display">
-                Проектирование сквозного пути игрока в экосистеме Kaspa: от первого клика до взаимодействия с токенами и участия в игровых циклах
-              </p>
-            </div>
-          </div>
-
-          {/* Cover Visual Preview Container */}
-          <div className="w-full rounded-2xl overflow-hidden bento-card bg-[#0e1118] border-0 p-3 sm:p-4">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-black/60">
-              <img
-                src={project.coverImage}
-                alt="PPKAS Web3 P2E Ecosystem"
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-              <div className="absolute bottom-5 left-6 right-6 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm font-sans text-white/80">
-                <span className="font-medium">Интерфейс P2E-экосистемы PPKAS на блокчейне Kaspa</span>
-                <span className="text-white/50">Архитектура онбординга & некастодиальный кошелек</span>
-              </div>
-            </div>
-          </div>
-
-        </section>
-
-        {/* ========================================================================= */}
-        {/* БЛОК 2: Твердые продуктовые метрики (Метрическая плашка)                 */}
-        {/* ========================================================================= */}
-        <section className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
-                <TrendingUp className="w-4 h-4" />
-                Твердые продуктовые метрики
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow">
-                Результаты UX-аудита и оптимизации воронок
-              </h2>
-            </div>
-          </div>
-
-          {/* 3 Metric Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Metric Cards: Ключевой импакт */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
             
             {/* Metric 1 */}
             <div
@@ -169,11 +131,11 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
                   +22%
                 </div>
                 <div className="text-lg sm:text-xl font-display font-medium text-white mb-2">
-                  Day 1 Retention
+                  D1 Retention
                 </div>
               </div>
               <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed pt-4 border-t border-white/[0.06]">
-                За счет внедрения поэтапного онбординга и мгновенного доступа к игре
+                За счет бесшовного онбординга и мгновенного доступа к игровому процессу
               </p>
             </div>
 
@@ -191,7 +153,7 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
                 </div>
               </div>
               <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed pt-4 border-t border-white/[0.06]">
-                Показатель успешного создания кошельков благодаря упрощению процессов настройки и минтинга
+                Конверсия создания некастодиальных кошельков благодаря упрощению настройки и минтинга
               </p>
             </div>
 
@@ -209,177 +171,115 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
                 </div>
               </div>
               <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed pt-4 border-t border-white/[0.06]">
-                Ускорение адаптации после устранения барьеров по итогам UX-аудита
+                Оптимизация регистрации и скорости адаптации новых игроков по итогам UX-аудита
               </p>
             </div>
 
           </div>
+
         </section>
 
         {/* ========================================================================= */}
-        {/* БЛОК 3: Выявленные проблемы и UX-аудит (Problem Framing)                  */}
+        {/* БЛОК 2: Игровые механики и анимации (P2E Core Loops)                     */}
         {/* ========================================================================= */}
-        <section className="space-y-6">
+        <section className="scroll-mt-24 space-y-8">
           <div>
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
-              <AlertCircle className="w-4 h-4" />
-              Аудит барьеров
+              <Play className="w-4 h-4 fill-current" />
+              P2E Core Loops
             </span>
-            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow">
-              Выявленные проблемы и UX-аудит (Problem Framing)
+            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow mb-3">
+              Игровые механики и анимации
             </h2>
+            <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed max-w-4xl">
+              Проектирование вовлекающих казуальных циклов внутри Telegram WebApp для роста ежедневной активности аудитории. Быстрые игровые сессии, мгновенный отклик и прозрачная интеграция с блокчейном Kaspa обеспечивают высокий retention
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* 3 Kinescope Players Grid (Vertical Mobile Format) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             
-            {/* Problem 1 */}
+            {/* Video 1: Открытие кейсов / Лутбоксы */}
             <div
               onMouseMove={handleMouseMove}
-              className="bento-card p-8 bg-[#0e1118] border-0 flex flex-col justify-between"
+              className="bento-card p-4 sm:p-5 bg-[#0e1118] border-0 flex flex-col justify-between"
             >
-              <div>
-                <div className="text-xs font-sans font-medium uppercase tracking-wider text-red-400/80 mb-3">
-                  Фрикция // 01
-                </div>
-                <h3 className="text-lg sm:text-xl font-display font-medium text-white mb-3">
-                  Высокий барьер входа в блокчейн-игры
+              <div className="mb-4">
+                <span className="text-[11px] font-sans font-medium uppercase tracking-wider text-[#8AB4F8] block mb-1">
+                  Механика // 01
+                </span>
+                <h3 className="text-base sm:text-lg font-display font-medium text-white">
+                  Открытие кейсов (Лутбоксы)
                 </h3>
-                <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                  Пользователи отваливались на сложных этапах работы с некастодиальными кошельками
-                </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.06] text-xs text-white/50 font-sans">
-                До 60% оттока на стадии сид-фразы
+              <div className="relative w-full rounded-2xl overflow-hidden bg-black/60 shadow-xl">
+                <iframe
+                  src="https://kinescope.io/embed/rXVGWkC4aQaLZ1sZ4grHiN"
+                  allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="w-full aspect-[544/848] rounded-2xl"
+                  title="Открытие кейсов / Лутбоксы"
+                />
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/[0.06] text-xs text-neutral-400 font-sans">
+                Анимация лутбоксов, дропы наград и мгновенная валидация транзакций
               </div>
             </div>
 
-            {/* Problem 2 */}
+            {/* Video 2: Space Hopper — механика Doodle Jump */}
             <div
               onMouseMove={handleMouseMove}
-              className="bento-card p-8 bg-[#0e1118] border-0 flex flex-col justify-between"
+              className="bento-card p-4 sm:p-5 bg-[#0e1118] border-0 flex flex-col justify-between"
             >
-              <div>
-                <div className="text-xs font-sans font-medium uppercase tracking-wider text-red-400/80 mb-3">
-                  Фрикция // 02
-                </div>
-                <h3 className="text-lg sm:text-xl font-display font-medium text-white mb-3">
-                  Когнитивный перегруз
+              <div className="mb-4">
+                <span className="text-[11px] font-sans font-medium uppercase tracking-wider text-[#8AB4F8] block mb-1">
+                  Механика // 02
+                </span>
+                <h3 className="text-base sm:text-lg font-display font-medium text-white">
+                  Space Hopper (Doodle Jump)
                 </h3>
-                <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                  Смешение сложной крипто-терминологии с базовыми игровыми механиками
-                </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.06] text-xs text-white/50 font-sans">
-                Усталость от валидаций и параметров сети
+              <div className="relative w-full rounded-2xl overflow-hidden bg-black/60 shadow-xl">
+                <iframe
+                  src="https://kinescope.io/embed/eH47V3WLJBZfvu7rrjCX4m"
+                  allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="w-full aspect-[576/1280] rounded-2xl"
+                  title="Space Hopper — механика Doodle Jump"
+                />
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/[0.06] text-xs text-neutral-400 font-sans">
+                Вертикальный раннер с динамическими платформами и счетчиком очков
               </div>
             </div>
 
-            {/* Problem 3 */}
+            {/* Video 3: Crazy Rocket — механика Flappy Bird */}
             <div
               onMouseMove={handleMouseMove}
-              className="bento-card p-8 bg-[#0e1118] border-0 flex flex-col justify-between"
+              className="bento-card p-4 sm:p-5 bg-[#0e1118] border-0 flex flex-col justify-between"
             >
-              <div>
-                <div className="text-xs font-sans font-medium uppercase tracking-wider text-red-400/80 mb-3">
-                  Фрикция // 03
-                </div>
-                <h3 className="text-lg sm:text-xl font-display font-medium text-white mb-3">
-                  Разрыв игрового цикла
+              <div className="mb-4">
+                <span className="text-[11px] font-sans font-medium uppercase tracking-wider text-[#8AB4F8] block mb-1">
+                  Механика // 03
+                </span>
+                <h3 className="text-base sm:text-lg font-display font-medium text-white">
+                  Crazy Rocket (Flappy Bird)
                 </h3>
-                <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                  Задержки в подтверждении транзакций ломали динамику геймплея
-                </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.06] text-xs text-white/50 font-sans">
-                Потеря вовлеченности в игровом процессе
+              <div className="relative w-full rounded-2xl overflow-hidden bg-black/60 shadow-xl">
+                <iframe
+                  src="https://kinescope.io/embed/vo6zHjGLb7DmzzXxyVVHez"
+                  allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="w-full aspect-[576/1280] rounded-2xl"
+                  title="Crazy Rocket — механика Flappy Bird"
+                />
               </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* БЛОК 4: Архитектура решений (Key Design Interventions)                    */}
-        {/* ========================================================================= */}
-        <section className="space-y-6">
-          <div>
-            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
-              <Zap className="w-4 h-4" />
-              Инженерный подход к UX
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow">
-              Архитектура решений (Key Design Interventions)
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            {/* Intervention 1 */}
-            <div
-              onMouseMove={handleMouseMove}
-              className="bento-card p-8 bg-[#0e1118] border-0 flex flex-col justify-between"
-            >
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] text-xs font-sans font-medium text-[#8AB4F8] mb-4">
-                  <Repeat className="w-3.5 h-3.5" />
-                  <span>STEP 01 // Progressive Flow</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-display font-medium text-white mb-3">
-                  Progressive Onboarding
-                </h3>
-                <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                  Разделение знакомства с игрой и создания кошелька. Игрок получает ценность сразу, а финансовая часть подключается органично
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs text-[#8AB4F8] font-sans">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>Мгновенный вход в геймплей без сид-фразы</span>
-              </div>
-            </div>
-
-            {/* Intervention 2 */}
-            <div
-              onMouseMove={handleMouseMove}
-              className="bento-card p-8 bg-[#0e1118] border-0 flex flex-col justify-between"
-            >
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] text-xs font-sans font-medium text-[#8AB4F8] mb-4">
-                  <Wallet className="w-3.5 h-3.5" />
-                  <span>STEP 02 // Seamless Setup</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-display font-medium text-white mb-3">
-                  Оптимизация настройки кошелька
-                </h3>
-                <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                  Переработка шагов сид-фраз, статусов сети Kaspa и подписи транзакций в интуитивный пошаговый диалог
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs text-[#8AB4F8] font-sans">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>Конверсия создания кошелька: 89%</span>
-              </div>
-            </div>
-
-            {/* Intervention 3 */}
-            <div
-              onMouseMove={handleMouseMove}
-              className="bento-card p-8 bg-[#0e1118] border-0 flex flex-col justify-between"
-            >
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] text-xs font-sans font-medium text-[#8AB4F8] mb-4">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>STEP 03 // Core Ecosystem</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-display font-medium text-white mb-3">
-                  Проектирование игровых и финансовых циклов
-                </h3>
-                <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                  Создание консистентных сценариев взаимодействия с игровыми активами совместно с командами безопасности и разработки
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs text-[#8AB4F8] font-sans">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>Синхронизация с DevSecOps и Core Team</span>
+              <div className="mt-4 pt-3 border-t border-white/[0.06] text-xs text-neutral-400 font-sans">
+                Аркадная механика с физикой гравитации и препятствиями в космосе
               </div>
             </div>
 
@@ -387,60 +287,169 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
         </section>
 
         {/* ========================================================================= */}
-        {/* БЛОК 5: Инженерный и продуктовый стек проекта                            */}
+        {/* БЛОК 3: Игровая графика и сборка ассетов в Figma                          */}
         {/* ========================================================================= */}
-        <section className="space-y-6">
+        <section className="scroll-mt-24 space-y-6">
           <div>
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
-              <Cpu className="w-4 h-4" />
-              Инструменты и компетенции
+              <Figma className="w-4 h-4" />
+              Game Design & Sprites
             </span>
-            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow">
-              Инженерный и продуктовый стек проекта
+            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow mb-3">
+              Игровая графика и сборка ассетов в Figma
             </h2>
+            <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed max-w-4xl">
+              Создание UI-компонентов, проработка состояний препятствий, платформ и спрайтов для двух мини-игр прямо в Figma для быстрой интеграции разработчиками
+            </p>
           </div>
 
+          {/* Slot for Figma Game Assets */}
           <div
             onMouseMove={handleMouseMove}
-            className="bento-card p-8 sm:p-10 bg-[#0e1118] border-0"
+            className="bento-card p-10 sm:p-14 bg-[#0e1118] border-0 text-center rounded-2xl relative overflow-hidden"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {[
-                {
-                  title: 'Figma',
-                  desc: 'Компонентная база, вариативные токены и интерактивные прототипы'
-                },
-                {
-                  title: 'Design Systems',
-                  desc: 'Сквозные дизайн-системы для мобильных и десктоп клиентов экосистемы'
-                },
-                {
-                  title: 'DevSecOps Alignment',
-                  desc: 'Спецификации безопасности, анти-фрод проверки и защита транзакций'
-                },
-                {
-                  title: 'Kaspa Network',
-                  desc: 'Блокчейн-инфраструктура, быстрые блоки и оптимизация комиссий'
-                },
-                {
-                  title: 'CJM & Usability Audits',
-                  desc: 'Аудит пользовательского пути, устранение узких мест и конверсионные воронки'
-                }
-              ].map((stackItem, sIdx) => (
+            <div className="max-w-2xl mx-auto flex flex-col items-center justify-center space-y-4 relative z-10">
+              <div className="w-16 h-16 rounded-2xl bg-[#8AB4F8]/[0.08] flex items-center justify-center text-[#8AB4F8] mb-2">
+                <Layers className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
+                [Слот под скриншоты ассетов из Figma]
+              </h3>
+              <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
+                Сюда будут автоматически встроены скриншоты UI-компонентов, платформ, препятствий и игровых спрайтов при передаче файлов
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] text-xs text-white/60 font-mono">
+                <span>Папка: /public/images/cases/ppkas/games/</span>
+              </div>
+            </div>
+            {/* Subtle background mesh glow */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#8AB4F8]/[0.02] via-transparent to-transparent pointer-events-none" />
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* БЛОК 4: Архитектура экранов Web3-приложения                              */}
+        {/* ========================================================================= */}
+        <section className="scroll-mt-24 space-y-6">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
+              <Smartphone className="w-4 h-4" />
+              App Flows & Architecture
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow mb-3">
+              Архитектура экранов Web3-приложения
+            </h2>
+            <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed max-w-4xl">
+              Флоу привязки некастодиального кошелька Kaspa, экраны инвентаря, квестов и лидерборда
+            </p>
+          </div>
+
+          {/* Slot for Application Screens */}
+          <div
+            onMouseMove={handleMouseMove}
+            className="bento-card p-10 sm:p-14 bg-[#0e1118] border-0 text-center rounded-2xl relative overflow-hidden"
+          >
+            <div className="max-w-2xl mx-auto flex flex-col items-center justify-center space-y-4 relative z-10">
+              <div className="w-16 h-16 rounded-2xl bg-[#8AB4F8]/[0.08] flex items-center justify-center text-[#8AB4F8] mb-2">
+                <Smartphone className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
+                [Слот под экраны приложения]
+              </h3>
+              <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
+                Сюда будут встроены макеты экранов привязки некастодиального кошелька Kaspa, инвентаря, квестов и лидерборда
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] text-xs text-white/60 font-mono">
+                <span>Папка: /public/images/cases/ppkas/screens/</span>
+              </div>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#8AB4F8]/[0.02] via-transparent to-transparent pointer-events-none" />
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* БЛОК 5: Виральность и коммуникации в Telegram                            */}
+        {/* ========================================================================= */}
+        <section className="scroll-mt-24 space-y-8">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
+              <Send className="w-4 h-4" />
+              Telegram Growth & Community
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow mb-3">
+              Виральность и коммуникации в Telegram
+            </h2>
+            <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed max-w-4xl">
+              Оформление канала и удержание сообщества — серия кастомных Telegram Stories, а также пак стикеров (генерация базы с последующей ручной отрисовкой и доводкой векторов)
+            </p>
+          </div>
+
+          {/* Subpart A: Telegram Stories Slot */}
+          <div
+            onMouseMove={handleMouseMove}
+            className="bento-card p-8 sm:p-10 bg-[#0e1118] border-0 rounded-2xl relative overflow-hidden"
+          >
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="space-y-2 text-center sm:text-left">
+                <span className="text-xs font-sans font-medium uppercase tracking-wider text-[#8AB4F8]">
+                  Telegram Stories
+                </span>
+                <h3 className="text-lg sm:text-xl font-display font-medium text-white">
+                  [Слот под серию кастомных Stories]
+                </h3>
+                <p className="text-sm text-neutral-300 font-sans max-w-xl">
+                  Сюда будут добавлены вертикальные креативы историй для официального Telegram-канала проекта
+                </p>
+              </div>
+              <div className="px-4 py-2 rounded-full bg-white/[0.04] text-xs text-white/50 font-mono shrink-0">
+                Ожидание файлов в /telegram/stories/
+              </div>
+            </div>
+          </div>
+
+          {/* Subpart B: Loaded Sticker Pack (5 Stickers Rendered) */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs font-sans font-medium uppercase tracking-wider text-[#8AB4F8] block mb-1">
+                  Активы сообщества
+                </span>
+                <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
+                  Официальный пак стикеров PPKAS (5 ассетов • Векторная доводка)
+                </h3>
+              </div>
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] text-xs text-[#8AB4F8] font-sans">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>Загружено 5 из 5</span>
+              </div>
+            </div>
+
+            {/* 5-Sticker Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+              {STICKERS.map((st, idx) => (
                 <div
-                  key={sIdx}
-                  className="p-5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-colors flex flex-col justify-between"
+                  key={idx}
+                  onMouseMove={handleMouseMove}
+                  className="bento-card p-4 sm:p-5 bg-[#0e1118] border-0 flex flex-col items-center text-center group hover:bg-[#121622] transition-colors"
                 >
-                  <div className="text-base font-display font-medium text-white mb-2">
-                    {stackItem.title}
+                  <div className="w-full aspect-square rounded-2xl bg-black/40 flex items-center justify-center p-3 mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                    <img
+                      src={st.file}
+                      alt={st.title}
+                      className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"
+                    />
                   </div>
-                  <div className="text-xs text-neutral-400 leading-relaxed font-sans">
-                    {stackItem.desc}
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-white/40 block mb-1">
+                    {st.badge}
+                  </span>
+                  <div className="text-xs sm:text-sm font-display font-medium text-white leading-snug">
+                    {st.title}
                   </div>
                 </div>
               ))}
             </div>
           </div>
+
         </section>
 
         {/* ========================================================================= */}
