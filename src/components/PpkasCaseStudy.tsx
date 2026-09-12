@@ -83,6 +83,21 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
       file: './images/cases/ppkas/telegram/sticker_10_halloween_witch.png',
       title: 'Pepe Witch Flight',
       badge: 'Sticker // 10'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_11_vampire_moon.png',
+      title: 'Вампир Pepe / Halloween',
+      badge: 'Sticker // 11'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_12_bull_market_surfer.png',
+      title: 'Буллран & Серфинг (Pump)',
+      badge: 'Sticker // 12'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_13_bear_market_hodler.png',
+      title: 'Медвежий рынок / HODL',
+      badge: 'Sticker // 13'
     }
   ];
 
@@ -432,7 +447,7 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
             </div>
           </div>
 
-          {/* Subpart B: Loaded Sticker Pack (10 Stickers Rendered) */}
+          {/* Subpart B: Loaded Sticker Pack (13 Stickers Rendered) */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
@@ -440,16 +455,16 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
                   Активы сообщества
                 </span>
                 <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
-                  Официальный пак стикеров PPKAS (10 ассетов • Векторная доводка)
+                  Официальный пак стикеров PPKAS (13 ассетов • Векторная доводка)
                 </h3>
               </div>
               <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] text-xs text-[#8AB4F8] font-sans">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Загружено 10 стикеров</span>
+                <span>Загружено 13 стикеров</span>
               </div>
             </div>
 
-            {/* 10-Sticker Grid */}
+            {/* 13-Sticker Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
               {STICKERS.map((st, idx) => (
                 <div
