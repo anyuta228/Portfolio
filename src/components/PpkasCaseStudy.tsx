@@ -11,7 +11,10 @@ import {
   Image as ImageIcon,
   CheckCircle2,
   Clock,
-  Layers
+  Layers,
+  Compass,
+  AlertCircle,
+  Milestone
 } from 'lucide-react';
 
 interface PpkasCaseStudyProps {
@@ -462,42 +465,203 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
         </section>
 
         {/* ========================================================================= */}
-        {/* БЛОК 4: Архитектура экранов Web3-приложения                              */}
+        {/* БЛОК 4: Архитектура продукта, Roadmap & Контекст проекта                 */}
         {/* ========================================================================= */}
-        <section className="scroll-mt-24 space-y-6">
+        <section className="scroll-mt-24 space-y-8">
           <div>
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
-              <Smartphone className="w-4 h-4" />
-              App Flows & Architecture
+              <Compass className="w-4 h-4" />
+              Product Strategy & Roadmap
             </span>
             <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow mb-3">
-              Архитектура экранов Web3-приложения
+              Архитектура экосистемы, Roadmap и контекст проекта
             </h2>
             <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed max-w-4xl">
-              Флоу привязки некастодиального кошелька Kaspa, экраны инвентаря, квестов и лидерборда
+              Сквозное проектирование продукта от концепции WhitePaper и тестнета до открытого релиза Multi-app с некастодиальным кошельком Kaspa. Честная ретроспектива: цели, запущенные в продакшн, и запланированный масштаб до приостановки проекта
             </p>
           </div>
 
-          {/* Slot for Application Screens */}
+          {/* Honest Startup Context Card */}
           <div
             onMouseMove={handleMouseMove}
-            className="bento-card p-10 sm:p-14 bg-[#0e1118] border-0 text-center rounded-2xl relative overflow-hidden"
+            className="bento-card p-6 sm:p-8 bg-[#0e1118] border-0 rounded-2xl relative overflow-hidden"
           >
-            <div className="max-w-2xl mx-auto flex flex-col items-center justify-center space-y-4 relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-[#8AB4F8]/[0.08] flex items-center justify-center text-[#8AB4F8] mb-2">
-                <Smartphone className="w-8 h-8" />
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+              <div className="w-12 h-12 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center shrink-0">
+                <AlertCircle className="w-6 h-6" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
-                [Слот под экраны приложения]
-              </h3>
-              <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                Сюда будут встроены макеты экранов привязки некастодиального кошелька Kaspa, инвентаря, квестов и лидерборда
-              </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] text-xs text-white/60 font-mono">
-                <span>Папка: /public/images/cases/ppkas/screens/</span>
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-xs uppercase font-mono tracking-wider text-amber-400 font-medium">
+                    Контекст стартапа // Проект временно заморожен
+                  </span>
+                  <span className="text-white/20">•</span>
+                  <span className="text-xs font-sans text-white/50">Финансовые ограничения основателей</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-display font-medium text-white">
+                  Продуктовая зрелость: запуск в прод до заморозки финансирования
+                </h3>
+                <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
+                  В Web3-стартапах скорость и непрерывность разработки напрямую зависят от финансовой устойчивости команды. Несмотря на последующую остановку проекта основателями, за 4 квартала работы был спроектирован и выведен в боевой прод ключевой функционал: выпуск токена KRC-20, некастодиальный онбординг, 3 мини-игры, ретеншн-механики и виральное сообщество.
+                </p>
               </div>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-b from-[#8AB4F8]/[0.02] via-transparent to-transparent pointer-events-none" />
+          </div>
+
+          {/* Two-Column Grid: Original Roadmap Screenshot + Delivered Milestones Breakdown */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+            
+            {/* Left Column: Original Site Roadmap Screenshot (Archival Proof) */}
+            <div
+              onMouseMove={handleMouseMove}
+              className="lg:col-span-5 bento-card p-4 sm:p-6 bg-[#0e1118] border-0 rounded-2xl flex flex-col group"
+            >
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#8AB4F8]">
+                  <Milestone className="w-3.5 h-3.5" />
+                  <span>ppkas.space (Archive)</span>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-white/[0.04] text-[10px] uppercase font-mono text-white/50">
+                  Архивный скриншот
+                </span>
+              </div>
+              <div className="w-full rounded-xl overflow-hidden bg-black/60 relative mb-4 group-hover:scale-[1.01] transition-transform duration-300">
+                <img
+                  src="./images/cases/ppkas/roadmap.png"
+                  alt="PPKAS Roadmap — Архив боевого сайта"
+                  className="w-full h-auto object-contain filter drop-shadow-lg"
+                />
+              </div>
+              <p className="text-xs text-neutral-400 font-sans leading-relaxed">
+                Оригинальный интерфейс интерактивного Roadmap с production-сайта ppkas.space (архив проекта)
+              </p>
+            </div>
+
+            {/* Right Column: Structured Milestones Breakdown */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              {/* Card 1: Реализованные этапы (Delivered in Production) */}
+              <div
+                onMouseMove={handleMouseMove}
+                className="bento-card p-6 sm:p-8 bg-[#0e1118] border-0 rounded-2xl space-y-5"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-400/10 text-emerald-400 flex items-center justify-center">
+                      <CheckCircle2 className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] uppercase font-mono text-emerald-400 block">
+                        Выполнено в проде
+                      </span>
+                      <h4 className="text-base sm:text-lg font-display font-medium text-white">
+                        Реализованные продуктовые вехи
+                      </h4>
+                    </div>
+                  </div>
+                  <span className="text-xs font-mono text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full">
+                    4 квартала запуска
+                  </span>
+                </div>
+
+                <div className="space-y-4 pt-2 border-t border-white/[0.06]">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-sans font-medium text-white">
+                      <span className="text-emerald-400 font-mono">Q2 2024:</span>
+                      <span>Концепт, токеномика и закрытая альфа</span>
+                    </div>
+                    <p className="text-xs text-neutral-400 font-sans leading-relaxed pl-4 border-l border-emerald-400/30">
+                      Формализация концепции, WhitePaper и расчет токеномики экосистемы. Развертывание $PPKAS в тестнете Kaspa и закрытое альфа-тестирование игры с ранним комьюнити.
+                    </p>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-sans font-medium text-white">
+                      <span className="text-emerald-400 font-mono">Q3 2024:</span>
+                      <span>Мейннет Kaspa KRC-20 и PvE-механики</span>
+                    </div>
+                    <p className="text-xs text-neutral-400 font-sans leading-relaxed pl-4 border-l border-emerald-400/30">
+                      Минтинг и деплой токенов $PPKAS в основной сети Kaspa по стандарту KRC-20. Запуск бета-версии с PvE-режимом и внедрение обучающего AI-ассистента в Telegram.
+                    </p>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-sans font-medium text-white">
+                      <span className="text-emerald-400 font-mono">Q4 2024:</span>
+                      <span>Листинги на биржах и модуль Kaspa Quiz</span>
+                    </div>
+                    <p className="text-xs text-neutral-400 font-sans leading-relaxed pl-4 border-l border-emerald-400/30">
+                      Старт маркетинговой кампании, первые листинги на DEX и CEX. Коллаборации внутри экосистемы Kaspa и релиз образовательной викторины Kaspa Quiz в Multi-app.
+                    </p>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-sans font-medium text-white">
+                      <span className="text-emerald-400 font-mono">Q1 2025:</span>
+                      <span>Open Beta Multi-app и интеграция кошелька</span>
+                    </div>
+                    <p className="text-xs text-neutral-400 font-sans leading-relaxed pl-4 border-l border-emerald-400/30">
+                      Листинг на криптоагрегаторах, поддержка некастодиальных холодных кошельков Kaspa, глобальный открытый бета-тест Multi-app и проведение аирдропа для тестеров.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2: Запланированный масштаб (Planned Scope) */}
+              <div
+                onMouseMove={handleMouseMove}
+                className="bento-card p-6 sm:p-8 bg-[#0e1118] border-0 rounded-2xl space-y-4"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.05] text-[#8AB4F8] flex items-center justify-center">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-mono text-[#8AB4F8] block">
+                      Продуктовый скоуп
+                    </span>
+                    <h4 className="text-base sm:text-lg font-display font-medium text-white">
+                      Запланированные цели до остановки проекта
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-white/[0.06] text-xs font-sans text-neutral-300">
+                  <div className="p-3 rounded-xl bg-white/[0.02]">
+                    <span className="font-mono text-white/50 block mb-1">Q2 2025</span>
+                    <span>Смарт-контракты Kasplex KRC-721 (NFT), новый веб-портал, система HODL profit</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/[0.02]">
+                    <span className="font-mono text-white/50 block mb-1">Q3 2025</span>
+                    <span>Листинг на Top-Tier CEX, турнирные чемпионаты игроков и 2-я коллекция NFT</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/[0.02] sm:col-span-2">
+                    <span className="font-mono text-white/50 block mb-1">Q4 2025 & Beyond</span>
+                    <span>Запуск маркетплейса физического мерчандайза и децентрализованное управление (DAO)</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Reserved Slot for Web3 Application Screens */}
+          <div
+            onMouseMove={handleMouseMove}
+            className="bento-card p-8 sm:p-10 bg-[#0e1118] border-0 text-center rounded-2xl relative overflow-hidden"
+          >
+            <div className="max-w-2xl mx-auto flex flex-col items-center justify-center space-y-3 relative z-10">
+              <div className="w-12 h-12 rounded-xl bg-[#8AB4F8]/[0.08] flex items-center justify-center text-[#8AB4F8]">
+                <Smartphone className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-display font-medium text-white">
+                Архитектура интерфейсов приложения
+              </h3>
+              <p className="text-xs sm:text-sm text-neutral-400 font-sans max-w-lg">
+                Слот для скриншотов флоу привязки некастодиального кошелька Kaspa, инвентаря, квестов и лидерборда (/public/images/cases/ppkas/screens/)
+              </p>
+            </div>
           </div>
         </section>
 
