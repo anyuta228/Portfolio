@@ -49,11 +49,11 @@ export const SkillsMatrix: React.FC = () => {
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
                 <span className="w-12 h-px bg-white/20" />
-                04 / Expertise & Product Focus
+                04 / Stack & Tooling
               </span>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95] text-white eclipse-glow">
-                Экспертиза<br />
-                <span className="text-white/40">и продуктовый фокус</span>
+                Инструменты<br />
+                <span className="text-white/40">и экспертиза</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-2">

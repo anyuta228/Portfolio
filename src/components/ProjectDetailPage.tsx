@@ -3,6 +3,7 @@ import { ProjectCase } from '../types.ts';
 import { PROJECTS, PERSONAL_RESUME } from '../data.ts';
 import { ProjectPreview } from './ProjectPreview.tsx';
 import { LibriumCaseStudy } from './LibriumCaseStudy.tsx';
+import { PpkasCaseStudy } from './PpkasCaseStudy.tsx';
 import { 
   ArrowLeft, 
   ArrowUpRight, 
@@ -34,6 +35,16 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
         project={project}
         onBack={onBack}
         onSelectProject={onSelectProject}
+      />
+    );
+  }
+
+  // Dedicated cohesive structured longread for PPKAS case study
+  if (project.id === 'ppkas') {
+    return (
+      <PpkasCaseStudy
+        project={project}
+        onBack={onBack}
       />
     );
   }
