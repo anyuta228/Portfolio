@@ -33,6 +33,39 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
 
+  const TELEGRAM_STORIES = [
+    {
+      file: './images/cases/ppkas/telegram/stories/story_1_fresh_p2e.png',
+      headline: 'Fresh Play2Earn',
+      caption: 'Come & see fresh Play2Earn on Kaspa — earn for real',
+      tag: 'Story // 01'
+    },
+    {
+      file: './images/cases/ppkas/telegram/stories/story_2_play_earn_repeat.png',
+      headline: 'Play. Earn. Repeat.',
+      caption: 'Быстрые циклы удержания и вовлечения аудитории',
+      tag: 'Story // 02'
+    },
+    {
+      file: './images/cases/ppkas/telegram/stories/story_3_first_p2e_history.png',
+      headline: 'First P2E on Kaspa',
+      caption: 'Исторический запуск первого P2E на блокчейне Kaspa',
+      tag: 'Story // 03'
+    },
+    {
+      file: './images/cases/ppkas/telegram/stories/story_4_hints_puzzles_rewards.png',
+      headline: 'Hints & Real Rewards',
+      caption: 'Головоломки, подсказки сообществу и реальные награды',
+      tag: 'Story // 04'
+    },
+    {
+      file: './images/cases/ppkas/telegram/stories/story_5_ton_yesterday_kaspa_next.png',
+      headline: 'Kaspa Game is Next!',
+      caption: 'Смена парадигмы: переход от TON к экосистеме Kaspa',
+      tag: 'Story // 05'
+    }
+  ];
+
   const STICKERS = [
     {
       file: './images/cases/ppkas/telegram/sticker_1_hi.png',
@@ -449,26 +482,49 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
             </p>
           </div>
 
-          {/* Subpart A: Telegram Stories Slot */}
-          <div
-            onMouseMove={handleMouseMove}
-            className="bento-card p-8 sm:p-10 bg-[#0e1118] border-0 rounded-2xl relative overflow-hidden"
-          >
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="space-y-2 text-center sm:text-left">
-                <span className="text-xs font-sans font-medium uppercase tracking-wider text-[#8AB4F8]">
-                  Telegram Stories
+          {/* Subpart A: Telegram Stories Showcase (5 Stories Rendered) */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs font-sans font-medium uppercase tracking-wider text-[#8AB4F8] block mb-1">
+                  Виральный контент
                 </span>
-                <h3 className="text-lg sm:text-xl font-display font-medium text-white">
-                  [Слот под серию кастомных Stories]
+                <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
+                  Серия кастомных Telegram Stories (5 креативов • 3D & UI)
                 </h3>
-                <p className="text-sm text-neutral-300 font-sans max-w-xl">
-                  Сюда будут добавлены вертикальные креативы историй для официального Telegram-канала проекта
-                </p>
               </div>
-              <div className="px-4 py-2 rounded-full bg-white/[0.04] text-xs text-white/50 font-mono shrink-0">
-                Ожидание файлов в /telegram/stories/
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] text-xs text-[#8AB4F8] font-sans">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>Загружено 5 историй</span>
               </div>
+            </div>
+
+            {/* 5-Stories Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+              {TELEGRAM_STORIES.map((st, idx) => (
+                <div
+                  key={idx}
+                  onMouseMove={handleMouseMove}
+                  className="bento-card p-3 sm:p-4 bg-[#0e1118] border-0 rounded-2xl flex flex-col group hover:bg-[#121622] transition-colors"
+                >
+                  <div className="w-full aspect-[9/16] rounded-xl bg-black/60 overflow-hidden mb-3 relative group-hover:scale-[1.02] transition-transform duration-300">
+                    <img
+                      src={st.file}
+                      alt={st.headline}
+                      className="w-full h-full object-cover object-center filter drop-shadow-md"
+                    />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#8AB4F8] block mb-1">
+                    {st.tag}
+                  </span>
+                  <div className="text-sm font-display font-medium text-white leading-snug mb-1">
+                    {st.headline}
+                  </div>
+                  <p className="text-xs text-neutral-400 font-sans leading-relaxed line-clamp-2">
+                    {st.caption}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
