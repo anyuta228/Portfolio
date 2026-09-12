@@ -326,15 +326,15 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
     if (project.id === 'ez-marketplace') {
       return (
         <div className="w-full h-full min-h-[320px] bg-[#07090E] rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden select-none">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#8AB4F8]/[0.04] to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0057ff]/[0.06] to-transparent pointer-events-none" />
           
           {/* Top HUD */}
           <div className="flex items-center justify-between relative z-10">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#8AB4F8] shadow-[0_0_8px_#8AB4F8]" />
-              <span className="font-sans text-xs text-white/70 uppercase tracking-wider">UPROCK Gold Certificate • Case /876</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#0057ff] shadow-[0_0_8px_#0057ff]" />
+              <span className="font-mono text-xs text-[#8AB4F8] uppercase tracking-wider">Behance Curated / Community Featured</span>
             </div>
-            <span className="px-2.5 py-0.5 rounded-full bg-[#8AB4F8]/10 text-[#8AB4F8] text-xs font-sans font-medium">Marketplace</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-[#0057ff]/20 text-[#8AB4F8] text-xs font-mono font-medium">FLAGSHIP</span>
           </div>
 
           {/* Central Architecture Mockup */}
@@ -357,15 +357,15 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
             </div>
 
             <div className="flex items-center justify-between px-2 font-sans text-xs text-white/60">
-              <span>MODULAR CARD SYSTEM & PRICE CALCULATOR</span>
-              <span className="text-white font-semibold">GOLD HONORS</span>
+              <span>PRIMARY COMMERCIAL OFFERS DRIVER</span>
+              <span className="text-white font-semibold">UPROCK GOLD</span>
             </div>
           </div>
 
           {/* Bottom HUD */}
           <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-sans text-white/40 relative z-10">
-            <span>ACCREDITATION: UPROCK MOBILE PRO</span>
-            <span>PUBLIC: DPROFILE /CASE/876</span>
+            <span>MOBILE UX/UI ARCHITECTURE</span>
+            <span className="text-[#8AB4F8] font-mono">BEHANCE FEATURED</span>
           </div>
         </div>
       );

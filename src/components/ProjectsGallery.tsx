@@ -16,6 +16,8 @@ interface CleanProjectMeta {
   context: string;
   summary: string;
   tagsLine: string;
+  technicalBadge?: string;
+  behanceUrl?: string;
 }
 
 const PROJECT_CLEAN_MAP: Record<string, CleanProjectMeta> = {
@@ -42,14 +44,17 @@ const PROJECT_CLEAN_MAP: Record<string, CleanProjectMeta> = {
     context: '2024 — 2025 • EdTech Platform',
     summary: 'Мобильное приложение для микрообучения (6 месяцев разработки ДО перехода в PPKAS): интерактивный граф знаний, сессии фокуса и архитектура мобильного интерфейса',
     tagsLine: 'EdTech Platform · Knowledge Graph · Mobile App · 6 Months R&D',
+    behanceUrl: 'https://www.behance.net/gallery/247098601/LIBRIUM-a-mobile-application-for-education',
   },
   'ez-marketplace': {
-    title: 'EZ — Поиск специалистов',
-    role: 'Product UX/UI Designer',
-    discipline: 'Marketplace Architecture',
-    context: '2021 — 2022 • Школа UPROCK',
-    summary: 'Сервис быстрого подбора локальных исполнителей: стандартизированные карточки мастеров, сквозной сценарий безопасной сделки и расчет сметы в 1 клик',
-    tagsLine: 'Marketplace Architecture · CJM Scenarios · UPROCK Gold',
+    title: 'EZ — Платформа для поиска специалистов',
+    role: 'Mobile UX/UI Design',
+    discipline: 'Mobile UX/UI Design',
+    context: 'Флагманский проект',
+    summary: 'Проект попал в рекомендации Behance (Featured / Curated), вызвал высокую вовлеченность профессионального сообщества и стал главным драйвером входящих офферов и коммерческих заказов',
+    tagsLine: 'Behance Curated · Community Featured · Mobile UX/UI',
+    technicalBadge: 'Behance Curated / Community Featured',
+    behanceUrl: 'https://www.behance.net/gallery/137808103/EZ-Mobile-UXUI-design-for-freelance-service',
   },
   'community-design': {
     title: 'Community Design',
@@ -259,18 +264,33 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                   onMouseEnter={() => handleCardMouseEnter(project.id)}
                   onMouseMove={(e) => handleCardMouseMove(project.id, e)}
                   onMouseLeave={handleCardMouseLeave}
-                  className={`p-7 sm:p-8 cursor-pointer group transition-all duration-300 bento-card flex flex-col justify-between ${
+                  className={`p-7 sm:p-8 cursor-pointer group transition-all duration-300 bento-card relative overflow-hidden flex flex-col justify-between border-0 ${
                     isActive
-                      ? 'bg-[#121622] opacity-100'
-                      : 'bg-[#0e1118] opacity-90 hover:opacity-100'
+                      ? 'bg-[#121622] opacity-100 shadow-[inset_0_0_30px_rgba(138,180,248,0.06),0_0_35px_-5px_rgba(0,87,255,0.12)]'
+                      : 'bg-[#0e1118] opacity-90 hover:opacity-100 hover:shadow-[inset_0_0_30px_rgba(138,180,248,0.05),0_0_35px_-5px_rgba(0,87,255,0.1)]'
                   }`}
                 >
+                  {/* Subtle inner ambient glow on hover (zero white borders) */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0057ff]/[0.05] via-transparent to-[#8AB4F8]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
                   <div className="relative z-10 flex flex-col justify-between h-full">
                     <div>
-                      {/* Meta Context */}
-                      <div className="text-xs sm:text-sm font-sans tracking-wider text-white/50 uppercase mb-2.5">
-                        <span>{meta.context} • {meta.discipline}</span>
-                      </div>
+                      {/* Meta Context & Technical Badge */}
+                      {meta.technicalBadge ? (
+                        <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0057ff]/10 text-[#8AB4F8] font-mono text-[11px] sm:text-xs font-medium tracking-wide uppercase border-0 shadow-[0_0_12px_rgba(0,87,255,0.25)]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#0057ff] shadow-[0_0_6px_#0057ff] animate-pulse" />
+                            {meta.technicalBadge}
+                          </span>
+                          <span className="text-xs sm:text-sm font-sans tracking-wider text-white/40 uppercase">
+                            {meta.context}
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="text-xs sm:text-sm font-sans tracking-wider text-white/50 uppercase mb-2.5">
+                          <span>{meta.context} • {meta.discipline}</span>
+                        </div>
+                      )}
 
                       {/* Project Title */}
                       <h3 className="font-display font-medium text-2xl sm:text-3xl text-white tracking-tight leading-tight mb-3 group-hover:text-white transition-colors">
@@ -289,8 +309,20 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                         {meta.tagsLine}
                       </div>
 
-                      <div className="flex items-center gap-2.5">
-                        {project.externalLinks?.liveSite && (
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        {meta.behanceUrl && (
+                          <a
+                            href={meta.behanceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#141926] hover:bg-[#1d2436] text-neutral-300 hover:text-white text-xs sm:text-sm font-sans font-medium transition-all active:scale-95 border-0 hover:shadow-[0_0_20px_rgba(138,180,248,0.25)] shadow-sm"
+                          >
+                            <span>Смотреть на Behance ↗</span>
+                          </a>
+                        )}
+
+                        {project.externalLinks?.liveSite && !meta.behanceUrl && (
                           <a
                             href={project.externalLinks.liveSite}
                             target="_blank"
@@ -384,14 +416,26 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                   <div className="text-base font-medium text-white">{activeMeta.title}</div>
                   <div className="text-xs font-sans text-white/60 mt-0.5">{activeMeta.role} • {activeMeta.discipline}</div>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => onSelectProject(activeProject)}
-                  className="px-5 py-2.5 rounded-full bg-white text-black text-sm font-sans font-medium hover:bg-white/90 transition-all flex items-center gap-1.5 active:scale-95 shadow-sm"
-                >
-                  <span>Детали</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
+                <div className="flex items-center gap-2">
+                  {activeMeta.behanceUrl && (
+                    <a
+                      href={activeMeta.behanceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3.5 py-2 rounded-full bg-[#141926] hover:bg-[#1d2436] text-neutral-300 hover:text-white text-xs font-sans font-medium transition-all active:scale-95 border-0 hover:shadow-[0_0_15px_rgba(138,180,248,0.25)] shadow-sm"
+                    >
+                      <span>Behance ↗</span>
+                    </a>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => onSelectProject(activeProject)}
+                    className="px-5 py-2.5 rounded-full bg-white text-black text-sm font-sans font-medium hover:bg-white/90 transition-all flex items-center gap-1.5 active:scale-95 shadow-sm"
+                  >
+                    <span>Детали</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
 
             </div>

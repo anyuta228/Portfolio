@@ -220,6 +220,17 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
           </div>
 
           <div className="flex items-center gap-3">
+            {project.externalLinks?.behance && (
+              <a
+                href={project.externalLinks.behance}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1118] text-neutral-300 hover:text-white text-xs sm:text-sm font-medium border-0 hover:shadow-[0_0_20px_rgba(138,180,248,0.25)] hover:bg-[#141824] transition-all active:scale-95"
+              >
+                <span>Смотреть на Behance ↗</span>
+              </a>
+            )}
+
             <button
               type="button"
               onClick={handleCopyLink}
@@ -330,6 +341,30 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
               >
                 <span>Перейти на сайт</span>
                 <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+          )}
+
+          {project.externalLinks?.behance && (
+            <div className="mt-6 p-5 sm:p-6 bg-[#0e1118] rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl border-0 hover:shadow-[0_0_30px_rgba(0,87,255,0.15)] transition-all">
+              <div className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0057ff] flex-shrink-0 shadow-[0_0_8px_#0057ff]" />
+                <div>
+                  <div className="text-xs font-mono font-medium uppercase tracking-wider text-[#8AB4F8]">
+                    {project.id === 'ez-marketplace' ? 'Behance Curated / Community Featured' : 'Официальная публикация на Behance'}
+                  </div>
+                  <div className="text-sm font-medium text-slate-300 font-sans mt-0.5">
+                    {project.externalLinks.behance}
+                  </div>
+                </div>
+              </div>
+              <a
+                href={project.externalLinks.behance}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white text-black hover:bg-neutral-200 font-semibold text-xs sm:text-sm rounded-full transition-all shadow-sm active:scale-95"
+              >
+                <span>Смотреть на Behance ↗</span>
               </a>
             </div>
           )}

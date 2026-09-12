@@ -249,6 +249,15 @@ export const LibriumCaseStudy: React.FC<LibriumCaseStudyProps> = ({
           </div>
 
           <div className="flex items-center gap-3">
+            <a
+              href="https://www.behance.net/gallery/247098601/LIBRIUM-a-mobile-application-for-education"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1118] text-neutral-300 hover:text-white text-xs sm:text-sm font-medium border-0 hover:shadow-[0_0_20px_rgba(138,180,248,0.25)] hover:bg-[#141824] transition-all active:scale-95"
+            >
+              <span>Кейс на Behance ↗</span>
+            </a>
+
             <button
               type="button"
               onClick={handleCopyLink}
@@ -290,6 +299,15 @@ export const LibriumCaseStudy: React.FC<LibriumCaseStudyProps> = ({
             <span className="text-xs sm:text-sm font-medium text-white/60">Community Design</span>
             <span className="text-white/20">•</span>
             <span className="text-xs sm:text-sm text-[#8AB4F8] font-medium">Релиз MVP</span>
+            <span className="text-white/20">•</span>
+            <a
+              href="https://www.behance.net/gallery/247098601/LIBRIUM-a-mobile-application-for-education"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0e1118] text-neutral-300 hover:text-white text-xs font-medium border-0 hover:shadow-[0_0_15px_rgba(138,180,248,0.25)] hover:bg-[#141824] transition-all"
+            >
+              <span>Кейс на Behance ↗</span>
+            </a>
           </div>
 
           {/* Large H1 Heading (Zero trailing dot) */}
@@ -634,7 +652,7 @@ export const LibriumCaseStudy: React.FC<LibriumCaseStudyProps> = ({
           <div className="bento-card p-8 sm:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
-              <div className="lg:col-span-8 space-y-4">
+              <div className="lg:col-span-7 space-y-4">
                 <h3 className="text-2xl sm:text-3xl font-display font-medium text-white">
                   Готовый к масштабированию MVP за 6 месяцев
                 </h3>
@@ -643,19 +661,30 @@ export const LibriumCaseStudy: React.FC<LibriumCaseStudyProps> = ({
                 </p>
               </div>
 
-              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-center gap-4">
-                <a
-                  href="https://dprofile.ru/case/181859/librium-mobilnoe-prilozenie-dlia-obuceniia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white text-black font-medium text-sm sm:text-base hover:bg-white/90 transition-all active:scale-95 shadow-sm"
-                >
-                  <span>Смотреть полный кейс на Dprofile</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
+              <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://www.behance.net/gallery/247098601/LIBRIUM-a-mobile-application-for-education"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#0e1118] text-neutral-300 hover:text-white font-medium text-sm sm:text-base border-0 hover:shadow-[0_0_25px_rgba(138,180,248,0.25)] hover:bg-[#141824] transition-all active:scale-95"
+                  >
+                    <span>Кейс на Behance ↗</span>
+                  </a>
+
+                  <a
+                    href="https://dprofile.ru/case/181859/librium-mobilnoe-prilozenie-dlia-obuceniia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 px-6 py-4 rounded-full bg-white text-black font-medium text-sm sm:text-base hover:bg-white/90 transition-all active:scale-95 shadow-sm"
+                  >
+                    <span>Кейс на Dprofile</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </div>
 
                 <span className="text-xs text-white/40 font-sans">
-                  Официальная публикация • Dprofile /case/181859
+                  Официальные публикации • Behance & Dprofile /case/181859
                 </span>
               </div>
 
