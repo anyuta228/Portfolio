@@ -92,10 +92,40 @@ export const CareerTimeline: React.FC = () => {
                         <span className="text-white/70">Клиенты: {role.clients.join(', ')}</span>
                       </>
                     )}
+                    {role.company === 'COMMUNITY DESIGN' && (
+                      <>
+                        <span className="opacity-40">•</span>
+                        <a
+                          href="https://vk.ru/community.design"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-sans text-neutral-300 hover:text-white transition-colors underline decoration-white/20 underline-offset-4 hover:decoration-[#8AB4F8]"
+                        >
+                          <span>Community Design ↗</span>
+                        </a>
+                      </>
+                    )}
                   </div>
 
-                  <h3 className="font-display font-medium text-2xl sm:text-3xl text-white">
-                    {role.title} <span className="opacity-30">/</span> <span className="text-white/80">{role.company}</span>
+                  <h3 className="font-display font-medium text-2xl sm:text-3xl text-white flex flex-wrap items-center gap-2.5">
+                    <span>{role.title}</span>
+                    <span className="opacity-30">/</span>
+                    {role.company === 'COMMUNITY DESIGN' ? (
+                      <a
+                        href="https://vk.ru/community.design"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-white/90 hover:text-white transition-colors group/cd"
+                        title="Перейти в Community Design"
+                      >
+                        <span className="underline decoration-white/30 underline-offset-4 group-hover/cd:decoration-[#8AB4F8] transition-all">
+                          {role.company}
+                        </span>
+                        <ArrowUpRight className="w-4 h-4 text-[#8AB4F8] transition-transform group-hover/cd:translate-x-0.5 group-hover/cd:-translate-y-0.5" />
+                      </a>
+                    ) : (
+                      <span className="text-white/80">{role.company}</span>
+                    )}
                   </h3>
                 </div>
 

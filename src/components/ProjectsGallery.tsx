@@ -274,9 +274,22 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                       </h3>
 
                       {/* Summary Description (2-3 lines living language, zero trailing periods) */}
-                      <p className="text-white/70 text-base sm:text-lg leading-relaxed font-sans mb-8">
+                      <p className="text-white/70 text-base sm:text-lg leading-relaxed font-sans mb-6">
                         {meta.summary}
                       </p>
+
+                      {/* Case Image Cover Slot (aspect-[16/10], rounded-2xl, hover scale-[1.02]) */}
+                      {project.coverImage && (
+                        <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden mb-6 relative bg-slate-950/60 select-none group/cover">
+                          <img
+                            src={project.coverImage}
+                            alt={meta.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                        </div>
+                      )}
                     </div>
 
                     {/* Clean Footer Row: Single Tag Line + Action Buttons */}
@@ -313,12 +326,14 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                       </div>
                     </div>
 
-                    {/* Mobile Preview Inline (Hidden on desktop, shown on mobile) */}
-                    <div className="lg:hidden mt-6 rounded-2xl overflow-hidden bg-slate-950/70">
-                      <div className="h-60 w-full relative">
-                        <ProjectPreview project={project} />
+                    {/* Mobile Fallback Preview Inline (Only when no coverImage) */}
+                    {!project.coverImage && (
+                      <div className="lg:hidden mt-6 rounded-2xl overflow-hidden bg-slate-950/70">
+                        <div className="h-60 w-full relative">
+                          <ProjectPreview project={project} />
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </motion.div>
               );

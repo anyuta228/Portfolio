@@ -99,8 +99,21 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           {CAREER_ROLES.map((role, idx) => (
             <div key={idx} className="p-6 bg-slate-950/60 rounded-2xl space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <div className="text-xl font-medium font-display text-white">
-                  {role.title} <span className="text-[#8AB4F8]">/</span> {role.company}
+                <div className="text-xl font-medium font-display text-white flex items-center gap-2 flex-wrap">
+                  <span>{role.title}</span> <span className="text-[#8AB4F8]">/</span>
+                  {role.company === 'COMMUNITY DESIGN' ? (
+                    <a
+                      href="https://vk.ru/community.design"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-white hover:text-[#8AB4F8] underline decoration-white/20 underline-offset-4 transition-colors"
+                    >
+                      <span>{role.company}</span>
+                      <ArrowUpRight className="w-4 h-4 text-[#8AB4F8]" />
+                    </a>
+                  ) : (
+                    <span>{role.company}</span>
+                  )}
                 </div>
                 <div className="text-sm text-slate-400 font-sans">
                   {role.period} ({role.type})

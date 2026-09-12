@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const NAV_LINKS = [
   { id: 'works', label: 'Кейсы', href: '#works-section' },
-  { id: 'motion', label: 'Кинетика', href: '#motion-section' },
+  { id: 'motion', label: 'Динамика', href: '#motion-section' },
   { id: 'experience', label: 'Опыт', href: '#experience-section' },
   { id: 'skills', label: 'Стек', href: '#skills-section' },
   { id: 'endorsements', label: 'Отзывы', href: '#endorsements-section' },

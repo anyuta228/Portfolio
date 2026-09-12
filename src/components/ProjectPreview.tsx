@@ -10,6 +10,29 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
   const media = project.previewMedia ?? [];
   const [active, setActive] = useState(0);
 
+  if (project.coverImage) {
+    return (
+      <div className="w-full h-full min-h-[320px] aspect-[16/10] bg-[#07090E] rounded-2xl overflow-hidden relative group/cover select-none flex items-center justify-center">
+        <img
+          src={project.coverImage}
+          alt={project.title}
+          className="w-full h-full object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-[1.02] group-hover/cover:scale-[1.02]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+        
+        {/* Subtle pill overlay */}
+        <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs font-sans text-white/80 pointer-events-none">
+          <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/90 font-medium">
+            {project.originLabel}
+          </span>
+          <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/70">
+            {project.period}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
   if (media.length === 0) {
     // High-fidelity domain-specific UI preview mockup (Strictly zero borders & inner glow)
     if (project.id === 'ppkas') {

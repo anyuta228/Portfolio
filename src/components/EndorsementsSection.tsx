@@ -152,10 +152,13 @@ export const EndorsementsSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2.5 flex-wrap">
                       <h3 className="font-display font-medium text-xl text-white">
                         {primaryEndorsement.author}
                       </h3>
+                      <span className="text-[10px] font-sans text-[#8AB4F8]/90 px-2 py-0.5 rounded-full bg-[#8AB4F8]/10 border border-[#8AB4F8]/20">
+                        Pseudonymous Contributor
+                      </span>
                       <a
                         href={primaryEndorsement.linkedinUrl}
                         target="_blank"
@@ -172,6 +175,9 @@ export const EndorsementsSection: React.FC = () => {
                     </p>
                     <p className="text-xs text-white/50 font-sans">
                       {primaryEndorsement.context}
+                    </p>
+                    <p className="text-[11px] text-white/35 font-sans mt-1">
+                      Примечание: в экосистеме Kaspa / Web3 ключевые разработчики протокола и контрибьюторы сохраняют приватность
                     </p>
                   </div>
                 </div>

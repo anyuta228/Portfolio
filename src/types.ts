@@ -51,6 +51,7 @@ export interface ProjectCase {
     liveSite?: string;
   };
   accentColor: string;
+  coverImage?: string;
   previewMedia?: ProjectMedia[];
   previewVisual?: 'web3-kaspa' | 'game-hud' | 'fintech-p2p' | 'saas-dashboard' | 'uprock-mobile' | 'atoma-lab' | 'librium-mobile' | 'ez-marketplace' | 'belosnezhka-cafe';
 }

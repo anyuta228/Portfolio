@@ -157,6 +157,7 @@ export const PROJECTS: ProjectCase[] = [
       telegram: 'https://t.me/vaivin'
     },
     accentColor: '#D97706',
+    coverImage: './images/cases/belosnezhka-cover.jpg',
     previewVisual: 'belosnezhka-cafe'
   },
   {
@@ -202,6 +203,7 @@ export const PROJECTS: ProjectCase[] = [
       telegram: 'https://t.me/vaivin'
     },
     accentColor: '#16A34A',
+    coverImage: './images/cases/ppkas-cover.png',
     previewVisual: 'web3-kaspa'
   },
   {
@@ -295,6 +297,7 @@ export const PROJECTS: ProjectCase[] = [
       telegram: 'https://t.me/vaivin'
     },
     accentColor: '#0D9488',
+    coverImage: './images/cases/librium-cover.png',
     previewVisual: 'librium-mobile'
   },
   {
@@ -340,6 +343,7 @@ export const PROJECTS: ProjectCase[] = [
       telegram: 'https://t.me/vaivin'
     },
     accentColor: '#2563EB',
+    coverImage: './images/cases/ez-marketplace-cover.png',
     previewVisual: 'ez-marketplace'
   },
   {
@@ -374,10 +378,12 @@ export const PROJECTS: ProjectCase[] = [
       'Клиентские проекты: KFBIO, FITVEND, STITCHLAB'
     ],
     externalLinks: {
+      liveSite: 'https://vk.ru/community.design',
       dprofile: 'https://dprofile.ru/myonlyregret',
       behance: 'https://behance.net/exussremo'
     },
     accentColor: '#0284C7',
+    coverImage: './images/cases/community-design-cover.png',
     previewVisual: 'saas-dashboard'
   }
 ];
@@ -600,20 +606,20 @@ export const MOTION_WORKS: MotionWork[] = [
 
 export const ENDORSEMENTS: Endorsement[] = [
   {
-    id: 'alex-vance-ppkas',
-    author: 'Alex Vance',
-    role: 'Lead Product Architect',
+    id: 'yonatan-ppkas',
+    author: 'Yonatan',
+    role: 'Core Contributor @ PPKAS Ecosystem',
     company: 'PPKAS Ecosystem / Kaspa Network',
-    relation: 'International Core Team • GameFi & Web3 Infrastructure',
+    relation: 'International Core Team • GameFi & Web3 Protocol Architecture (Анонимный контрибьютор)',
     quote: 'Anna demonstrated exceptional product ownership and high-tempo execution while designing the PPKAS Web3 gaming ecosystem. She completely re-architected our non-custodial onboarding flow, trimming the friction from 7 tedious steps down to 2 seamless biometric interactions. Her deep UX audit and telemetry-driven design reduced drop-off rates and boosted our Day 1 Retention by +22%. Anna has a rare talent for translating complex cryptographic constraints into intuitive, human-centered interfaces that both web3 natives and mainstream players enjoy.',
     quoteEn: 'Anna demonstrated exceptional product ownership and high-tempo execution while designing the PPKAS Web3 gaming ecosystem. She completely re-architected our non-custodial onboarding flow, trimming the friction from 7 tedious steps down to 2 seamless biometric interactions. Her deep UX audit and telemetry-driven design reduced drop-off rates and boosted our Day 1 Retention by +22%. Anna has a rare talent for translating complex cryptographic constraints into intuitive, human-centered interfaces that both web3 natives and mainstream players enjoy.',
     quoteRu: '«Анна продемонстрировала исключительное продуктовое лидерство и высокую скорость работы при проектировании Web3 игровой экосистемы PPKAS. Она полностью переработала архитектуру онбординга некастодиального кошелька, сократив барьеры с 7 утомительных шагов до 2 бесшовных биометрических действий. Глубокий UX-аудит и дизайн на основе телеметрии снизили отток и увеличили наше удержание первого дня (D1 Retention) на +22%. У Анны редкий талант превращать сложные криптографические ограничения в интуитивные, понятные людям интерфейсы».',
     context: 'Проектирование некастодиального кошелька Kaspa, игрового HUD и аудит конверсии P2E',
-    authorInitials: 'AV',
+    authorInitials: 'Y',
     linkedinUrl: 'https://www.linkedin.com/in/vaivin/',
     skillsHighlighted: ['Web3 Architecture', 'Kaspa Blockchain', 'D1 Retention (+22%)', 'Telemetry & Onboarding'],
     verifiedDate: '2025 — 2026 • Международная команда PPKAS',
-    badgeLabel: 'Web3 Core Team // Kaspa Network'
+    badgeLabel: 'Core Contributor // Kaspa Network'
   },
   {
     id: 'evgeny-chernov-uprock',

@@ -189,16 +189,16 @@ export const MotionGallery: React.FC = () => {
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
                 <span className="w-12 h-px bg-white/20" />
-                02 / Motion & Interaction Physics
+                02 / Motion & Interactions
               </span>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95] text-white eclipse-glow">
-                Кинетика и<br />
-                <span className="text-white/40">микроанимации</span>
+                Динамика интерфейсов /<br />
+                <span className="text-white/40">Motion & Interactions</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-2">
               <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans mb-6">
-                Интерактивные микродействия, пространственная динамика и кинетика интерфейсов из профиля Dribbble. Все концепты и микроанимации собраны вручную в Adobe After Effects (60 FPS, тактильный физический отклик)
+                Интерактивные микродействия, пространственная динамика и моушн-дизайн интерфейсов из профиля Dribbble. Все концепты и анимации собраны вручную в Adobe After Effects (60 FPS, тактильный физический отклик)
               </p>
               <a
                 href="https://dribbble.com/annaatoma"

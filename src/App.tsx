@@ -11,11 +11,20 @@ import { ContactSection } from './components/ContactSection.tsx';
 import { Footer } from './components/Footer.tsx';
 import { ProjectDetailPage } from './components/ProjectDetailPage.tsx';
 import { ResumeModal } from './components/ResumeModal.tsx';
+import { GatekeeperScreen } from './components/GatekeeperScreen.tsx';
 import { ProjectCase } from './types.ts';
+import { AnimatePresence } from 'motion/react';
 
 export function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectCase | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState<boolean>(false);
+  const [isUnlocked, setIsUnlocked] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('atoma_portfolio_unlocked') === 'true';
+    } catch {
+      return false;
+    }
+  });
   const rootRef = useRef<HTMLDivElement>(null);
 
   // 60 FPS global mouse spotlight tracker using requestAnimationFrame & CSS variables (Zero React re-render)
@@ -74,6 +83,13 @@ export function App() {
           isOpen={isResumeOpen}
           onClose={() => setIsResumeOpen(false)}
         />
+
+        {/* Lunar Gatekeeper Password Protection Screen */}
+        <AnimatePresence>
+          {!isUnlocked && (
+            <GatekeeperScreen onUnlock={() => setIsUnlocked(true)} />
+          )}
+        </AnimatePresence>
       </div>
     );
   }
@@ -123,6 +139,13 @@ export function App() {
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
       />
+
+      {/* Lunar Gatekeeper Password Protection Screen */}
+      <AnimatePresence>
+        {!isUnlocked && (
+          <GatekeeperScreen onUnlock={() => setIsUnlocked(true)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
