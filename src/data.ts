@@ -1,4 +1,4 @@
-import { ProjectCase, CareerRole, ContactChannel, MotionWork, Endorsement } from './types.ts';
+import { ProjectCase, CareerRole, ContactChannel, MotionWork, Endorsement, ExpertiseCard } from './types.ts';
 
 export const PERSONAL_RESUME = {
   name: 'Анна Агабекян',
@@ -73,6 +73,51 @@ export const SKILL_GROUPS = [
       'Web3 & блокчейн (Kaspa Network)',
       'Некастодиальные кошельки & безопасность (DevSecOps)'
     ]
+  }
+];
+
+export const EXPERTISE_CARDS: ExpertiseCard[] = [
+  {
+    id: 'complex-systems',
+    code: 'FOCUS // 01',
+    title: 'Архитектура сложных систем',
+    focus: 'Web3, FinTech, B2B-платформы',
+    leadValue: 'Быстро погружаюсь в сложную доменную логику, финансовые потоки и многоуровневые сценарии. Проектирую интерфейсы так, чтобы снижать порог входа и когнитивную нагрузку для пользователя',
+    highlights: [
+      'Многоуровневые пользовательские сценарии и ветвления',
+      'Некастодиальные кошельки и блокчейн-инфраструктура (Kaspa)',
+      'Снижение когнитивной нагрузки в насыщенных аналитикой интерфейсах',
+      'Безопасность транзакций и валидация критических состояний'
+    ],
+    metricsTag: 'Web3 & FinTech UX'
+  },
+  {
+    id: 'product-metrics',
+    code: 'FOCUS // 02',
+    title: 'Продуктовое мышление и метрики',
+    focus: 'UX-исследования, CJM, оптимизация воронок',
+    leadValue: 'Принимаю дизайн-решения на основе данных, пользовательских интервью и аудитов. Оптимизирую онбординги и ключевые конверсионные пути, влияя на удержание (Retention) и бизнес-показатели продукта',
+    highlights: [
+      'Глубинные CustDev-интервью и выявление болей аудитории',
+      'Проектирование Customer Journey Map (CJM) и Jobs To Be Done',
+      'UX-аудит, устранение критических фрикций и рост конверсии',
+      'Оптимизация онбординга и влияние на Day 1 Retention (+22%)'
+    ],
+    metricsTag: 'CJM & Retention'
+  },
+  {
+    id: 'design-systems-code',
+    code: 'FOCUS // 03',
+    title: 'Системный дизайн и передача в код',
+    focus: 'Design Systems, спецификации, AI-assisted tooling',
+    leadValue: 'Строю гибкие, масштабируемые дизайн-системы в Figma с продуманными состояниями и токенами. Говорю на одном языке с разработчиками, сокращая время передачи макетов в продакшн',
+    highlights: [
+      'Масштабируемые дизайн-системы в Figma: токены, варианты, автолейауты',
+      'Продуманные краевые состояния (edge cases, empty states, validation)',
+      'Бесшовная передача в разработку без домысливания со стороны инженеров',
+      'AI-assisted прототипирование и валидация продуктовых гипотез в коде'
+    ],
+    metricsTag: 'Design Tokens & Handoff'
   }
 ];
 
@@ -390,7 +435,7 @@ export const PROJECTS: ProjectCase[] = [
 
 export const CAREER_ROLES: CareerRole[] = [
   {
-    period: '2025 — по наст. время',
+    period: 'Август 2026 — Настоящее время',
     title: 'Product UX/UI Designer (AI-Assisted Full-Cycle)',
     company: 'ATOMA',
     type: 'Авторская продуктовая практика, AI-ассистированная веб-разработка',
@@ -431,6 +476,7 @@ export const CAREER_ROLES: CareerRole[] = [
     company: 'COMMUNITY DESIGN',
     type: 'Фриланс / Клиентская практика, удалённо',
     location: 'Remote',
+    summary: 'Проектирование веб-сервисов, образовательных платформ и дизайн-систем для B2B/B2C клиентов в рамках дизайн-сообщества',
     clients: ['KFBIO', 'FITVEND', 'STITCHLAB', 'LIBRIUM'],
     clientCases: [
       {
@@ -467,8 +513,7 @@ export const CAREER_ROLES: CareerRole[] = [
       'KFBIO: проектирование структуры и адаптивного веб-сайта компании',
       'FITVEND: мобильное приложение для операторов и владельцев вендинговых сетей — аналитика остатков продукции, умные алерты и своевременная логистика пополнения аппаратов',
       'STITCHLAB: разработка айдентики и минималистичного логотипа бренда',
-      'LIBRIUM: сквозное проектирование мобильного EdTech-приложения для адаптивного обучения с нуля за 6 месяцев (на этапе MVP/WIP)',
-      'B2B SaaS: редизайн UX/UI панели управления сократил время выполнения задач с 5 мин до 1 мин; EdTech: рост регистраций на 30% в 1-й месяц'
+      'LIBRIUM: сквозное проектирование мобильного EdTech-приложения для адаптивного обучения с нуля за 6 месяцев (на этапе MVP/WIP)'
     ]
   },
   {

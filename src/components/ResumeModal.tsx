@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { PERSONAL_RESUME, CAREER_ROLES } from '../data.ts';
-import { X, Printer, Send } from 'lucide-react';
+import { X, Printer, Send, ArrowUpRight } from 'lucide-react';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -61,7 +61,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               {PERSONAL_RESUME.name}
             </h1>
             <div className="text-xl sm:text-2xl text-[#8AB4F8] font-medium mt-2">
-              {PERSONAL_RESUME.title} ({PERSONAL_RESUME.roleLevel})
+              {PERSONAL_RESUME.roleLevel}
             </div>
             <div className="text-slate-300 text-sm sm:text-base mt-3 space-y-1.5 font-sans">
               <div>Опыт работы: <span className="text-white font-medium">{PERSONAL_RESUME.experienceYears}</span></div>
@@ -123,6 +123,27 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               {role.clients && (
                 <div className="text-sm text-slate-400 font-sans">
                   Клиенты: {role.clients.join(', ')}
+                </div>
+              )}
+
+              {role.summary && (
+                <div className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+                  {role.company === 'COMMUNITY DESIGN' ? (
+                    <>
+                      Проектирование веб-сервисов, образовательных платформ и дизайн-систем для B2B/B2C клиентов в рамках{' '}
+                      <a
+                        href="https://vk.ru/community.design"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#8AB4F8] hover:underline underline-offset-4 inline-flex items-center gap-0.5 font-medium"
+                      >
+                        дизайн-сообщества
+                        <ArrowUpRight className="w-3.5 h-3.5 inline" />
+                      </a>
+                    </>
+                  ) : (
+                    role.summary
+                  )}
                 </div>
               )}
 

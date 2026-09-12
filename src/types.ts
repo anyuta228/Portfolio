@@ -69,11 +69,22 @@ export interface CareerRole {
   company: string;
   type: string;
   location: string;
+  summary?: string;
   duties: string[];
   achievements: string[];
   clients?: string[];
   clientCases?: ClientCaseItem[];
   certificate?: string;
+}
+
+export interface ExpertiseCard {
+  id: string;
+  code: string;
+  title: string;
+  focus: string;
+  leadValue: string;
+  highlights: string[];
+  metricsTag?: string;
 }
 
 export interface ContactChannel {

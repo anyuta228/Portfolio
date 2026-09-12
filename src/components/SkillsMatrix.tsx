@@ -1,5 +1,5 @@
 import React from 'react';
-import { SKILL_GROUPS } from '../data.ts';
+import { EXPERTISE_CARDS } from '../data.ts';
 import { Check } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -49,61 +49,93 @@ export const SkillsMatrix: React.FC = () => {
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
                 <span className="w-12 h-px bg-white/20" />
-                04 / Architecture & Toolchain
+                04 / Expertise & Product Focus
               </span>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95] text-white eclipse-glow">
-                Компетенции<br />
-                <span className="text-white/40">и стек</span>
+                Экспертиза<br />
+                <span className="text-white/40">и продуктовый фокус</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-2">
               <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans">
-                Product Architecture • Design System Ops • UX Audit & CJM • Interaction Physics
+                Ключевые направления и ценность для продуктовых команд: архитектура сложных систем, исследования и передача в код без домысливания
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* 3 Large Modular Bento Cards (Zero Borders) */}
+        {/* 3 Large Modular Bento Cards (Zero Borders, bg-[#0e1118], Lunar Spotlight) */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
         >
-          {SKILL_GROUPS.map((group, idx) => (
+          {EXPERTISE_CARDS.map((card) => (
             <motion.div
               variants={cardVariants}
-              key={idx}
+              key={card.id}
               onMouseMove={handleMouseMove}
-              className="bento-card p-8 sm:p-9 flex flex-col justify-between"
+              className="bento-card p-8 sm:p-9 flex flex-col justify-between group"
             >
               <div className="relative z-10">
-                <div className="text-xs font-sans font-medium tracking-[0.2em] text-neutral-400 uppercase mb-2.5">
-                  {group.code}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <span className="text-xs font-sans font-medium tracking-[0.2em] text-neutral-400 uppercase">
+                    {card.code}
+                  </span>
+                  {card.metricsTag && (
+                    <span className="px-3 py-1 rounded-full bg-white/[0.04] text-[#8AB4F8] text-xs font-sans font-medium">
+                      {card.metricsTag}
+                    </span>
+                  )}
                 </div>
 
-                <h3 className="font-display font-medium text-2xl text-white mb-6 tracking-tight">
-                  {group.category}
+                <h3 className="font-display font-medium text-2xl sm:text-3xl text-white mb-3 tracking-tight">
+                  {card.title}
                 </h3>
 
-                <ul className="space-y-2.5">
-                  {group.skills.map((skill, sIdx) => (
-                    <li
-                      key={sIdx}
-                      className="p-3.5 bg-white/[0.03] rounded-xl text-sm sm:text-base text-neutral-300 font-sans flex items-center justify-between hover:bg-white/[0.06] transition-colors"
+                <div className="mb-6 pb-5 border-t border-b border-white/[0.06] pt-4">
+                  <div className="text-[11px] uppercase tracking-wider text-white/40 font-sans font-medium mb-1.5">
+                    Фокус
+                  </div>
+                  <div className="text-sm sm:text-base font-sans font-medium text-[#8AB4F8]">
+                    {card.focus}
+                  </div>
+                </div>
+
+                {/* Lead Value Box (Clean Sans, No Monospace) */}
+                <div className="p-5 rounded-2xl bg-white/[0.03] mb-6">
+                  <div className="text-[11px] uppercase tracking-wider text-neutral-400 font-sans font-medium mb-2.5 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#8AB4F8]" />
+                    <span>Ценность для лида и продукта</span>
+                  </div>
+                  <p className="text-sm sm:text-[15px] text-neutral-200 leading-relaxed font-sans font-normal">
+                    {card.leadValue}
+                  </p>
+                </div>
+
+                {/* Key Highlights */}
+                <div className="space-y-2 mb-6">
+                  <div className="text-[11px] uppercase tracking-wider text-white/40 font-sans font-medium mb-2">
+                    Практика и компетенции
+                  </div>
+                  {card.highlights.map((item, hIdx) => (
+                    <div
+                      key={hIdx}
+                      className="p-3 bg-white/[0.02] rounded-xl text-xs sm:text-sm text-neutral-300 font-sans flex items-start gap-2.5 hover:bg-white/[0.05] transition-colors"
                     >
-                      <span className="font-normal">{skill}</span>
-                      <Check className="w-4 h-4 text-[#8AB4F8] flex-shrink-0" />
-                    </li>
+                      <Check className="w-4 h-4 text-[#8AB4F8] flex-shrink-0 mt-0.5" />
+                      <span className="font-normal leading-snug">{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              <div className="mt-8 pt-4 flex items-center justify-between text-xs text-neutral-400 relative z-10 font-sans tracking-wider">
-                <span>Глубина: Middle+ / Lead</span>
-                <span className="text-neutral-200">В кейсах</span>
+              {/* Bottom Card Footer */}
+              <div className="mt-4 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-400 relative z-10 font-sans tracking-wide">
+                <span className="text-white/60">Глубина: Middle+ / Lead</span>
+                <span className="text-neutral-300">Подтверждено в кейсах</span>
               </div>
             </motion.div>
           ))}

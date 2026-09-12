@@ -127,6 +127,27 @@ export const CareerTimeline: React.FC = () => {
                       <span className="text-white/80">{role.company}</span>
                     )}
                   </h3>
+
+                  {role.summary && (
+                    <p className="mt-3.5 text-base text-neutral-300 leading-relaxed font-sans max-w-4xl">
+                      {role.company === 'COMMUNITY DESIGN' ? (
+                        <>
+                          Проектирование веб-сервисов, образовательных платформ и дизайн-систем для B2B/B2C клиентов в рамках{' '}
+                          <a
+                            href="https://vk.ru/community.design"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#8AB4F8] hover:text-white underline decoration-[#8AB4F8]/40 hover:decoration-[#8AB4F8] underline-offset-4 transition-colors font-medium inline-flex items-center gap-0.5"
+                          >
+                            дизайн-сообщества
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                          </a>
+                        </>
+                      ) : (
+                        role.summary
+                      )}
+                    </p>
+                  )}
                 </div>
 
                 <span className="bg-white/[0.05] text-xs font-sans text-white/70 py-1.5 px-4 rounded-full self-start">
