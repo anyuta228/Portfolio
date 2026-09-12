@@ -500,20 +500,44 @@ export const PPKAS_CASE_STEPS = [
 
 export const MOTION_WORKS: MotionWork[] = [
   {
-    id: 'united-nations',
+    id: 'skyrim-hud',
     index: '01',
+    title: 'The Elder Scrolls V: Skyrim',
+    subtitle: 'Реконцепция интерфейса инвентаря и созвездий навыков',
+    category: 'Game UI & Spatial HUD',
+    videoUrl: 'https://cdn.dribbble.com/userupload/48913360/file/large-20299b23f4b755a5113c937b1606043f.mp4',
+    stillUrl: 'https://cdn.dribbble.com/userupload/48913360/file/still-20299b23f4b755a5113c937b1606043f.png?format=webp&resize=800x600&vertical=center',
+    dribbbleUrl: 'https://dribbble.com/shots/27701749-The-Elder-Scrolls-5',
+    stack: ['3D Spatial HUD', 'Interactive Constellations', 'After Effects'],
+    description: 'Эргономичная навигация по предметам, трехмерное вращение артефактов и кинетический отклик созвездий прокачки персонажа.'
+  },
+  {
+    id: 'tesla',
+    index: '02',
+    title: 'Tesla Telemetry & OS',
+    subtitle: 'Бортовой HUD-интерфейс и мобильный пульт управления электрокаром',
+    category: 'Automotive & IoT Telemetry',
+    videoUrl: 'https://cdn.dribbble.com/userupload/48913347/file/large-24df2defdf51007e228dc1ec03437576.mp4',
+    stillUrl: 'https://cdn.dribbble.com/userupload/48913347/file/still-96e2da2ae928056c40b69dbcc545f9d2.png?format=webp&resize=800x600&vertical=center',
+    dribbbleUrl: 'https://dribbble.com/shots/27701747-Tesla',
+    stack: ['Framer Motion', 'Automotive Telemetry HUD', 'SVG Dynamics 60 FPS'],
+    description: 'Динамическая визуализация расхода батареи, температурного зонирования и тактильной реактивности сенсорных переключателей на 60 FPS.'
+  },
+  {
+    id: 'united-nations',
+    index: '03',
     title: 'United Nations Platform',
     subtitle: 'Интерактивная карта гуманитарных потоков и динамические фильтры',
     category: 'Global Data Viz & Humanitarian UI',
     videoUrl: 'https://cdn.dribbble.com/userupload/48913377/file/large-358990908be53eb6eac5a7dcfb44223e.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48913377/file/still-aba3f280e4aec36a27f4e8d06354e101.png?format=webp&resize=800x600&vertical=center',
     dribbbleUrl: 'https://dribbble.com/shots/27701755-United-Nations',
-    stack: ['After Effects', 'WebGL Micro-Interactions', 'Lottie / JSON'],
+    stack: ['WebGL Micro-Interactions', 'Global Data Map', 'After Effects'],
     description: 'Кинетика переключения глобальных показателей гуманитарного мониторинга, плавное развертывание инфографики и тактильный отклик контроллеров.'
   },
   {
     id: 'tiffany',
-    index: '02',
+    index: '04',
     title: 'Tiffany & Co.',
     subtitle: 'Премиальная кинетика каталога ювелирных коллекций',
     category: 'Luxury E-Commerce & High-End Retail',
@@ -525,7 +549,7 @@ export const MOTION_WORKS: MotionWork[] = [
   },
   {
     id: 'metropolitan-opera',
-    index: '03',
+    index: '05',
     title: 'The Metropolitan Opera',
     subtitle: 'Афиша репертуара и пространственный выбор мест зала',
     category: 'Culture & Digital Stage Booking',
@@ -536,40 +560,16 @@ export const MOTION_WORKS: MotionWork[] = [
     description: 'Театральная пластика переходов: раздвигающиеся панели расписания, оптическая смена контрастов и микроанимации бронирования лож.'
   },
   {
-    id: 'tesla',
-    index: '04',
-    title: 'Tesla Telemetry & OS',
-    subtitle: 'Бортовой HUD-интерфейс и мобильный пульт управления электрокаром',
-    category: 'Automotive & IoT Telemetry',
-    videoUrl: 'https://cdn.dribbble.com/userupload/48913347/file/large-24df2defdf51007e228dc1ec03437576.mp4',
-    stillUrl: 'https://cdn.dribbble.com/userupload/48913347/file/still-96e2da2ae928056c40b69dbcc545f9d2.png?format=webp&resize=800x600&vertical=center',
-    dribbbleUrl: 'https://dribbble.com/shots/27701747-Tesla',
-    stack: ['Framer Motion', 'Automotive Telemetry HUD', 'SVG Dynamics'],
-    description: 'Динамическая визуализация расхода батареи, температурного зонирования и тактильной реактивности сенсорных переключателей на 60 FPS.'
-  },
-  {
     id: 'bolshoi-theatre',
-    index: '05',
+    index: '06',
     title: 'Большой Театр',
     subtitle: 'Иммерсивная сценография и динамическая хроника постановок',
     category: 'Digital Scenography & Dynamic UI',
     videoUrl: 'https://cdn.dribbble.com/userupload/48913349/file/large-49c9cbba7193738be477722aa72e7427.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48913349/file/still-3da96ca74b1e4fbba0f03126be15d0ea.png?format=webp&resize=800x600&vertical=center',
     dribbbleUrl: 'https://dribbble.com/shots/27701748-The-Bolshoi-Theatre',
-    stack: ['Spine 2D', 'Fluid Stage Physics', 'Principle'],
+    stack: ['Fluid Stage Physics', 'Principle', 'After Effects'],
     description: 'Глубокие параллакс-планы кулис, мягкая физика инерции при скролле архивных афиш и адаптивный контрастный лейаут.'
-  },
-  {
-    id: 'skyrim-hud',
-    index: '06',
-    title: 'The Elder Scrolls V: Skyrim',
-    subtitle: 'Реконцепция интерфейса инвентаря и созвездий навыков',
-    category: 'Game UI & Spatial HUD',
-    videoUrl: 'https://cdn.dribbble.com/userupload/48913360/file/large-20299b23f4b755a5113c937b1606043f.mp4',
-    stillUrl: 'https://cdn.dribbble.com/userupload/48913360/file/still-20299b23f4b755a5113c937b1606043f.png?format=webp&resize=800x600&vertical=center',
-    dribbbleUrl: 'https://dribbble.com/shots/27701749-The-Elder-Scrolls-5',
-    stack: ['After Effects', 'Game Inventory HUD', 'Micro-Interactions'],
-    description: 'Эргономичная навигация по предметам, трехмерное вращение артефактов и кинетический отклик созвездий прокачки персонажа.'
   }
 ];
 

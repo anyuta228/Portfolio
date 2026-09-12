@@ -49,11 +49,9 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
       });
     }
 
-    // Default angle: ~50 degrees down-right (matching reference photo media_1789214468983.png)
-    const DEFAULT_ANGLE = Math.PI * 0.36;
-    let targetAngle = DEFAULT_ANGLE;
-    let currentAngle = DEFAULT_ANGLE;
-    let isTouch = false;
+    // Autonomous orbital cycle (32 seconds for full 360-degree meditative rotation)
+    const ORBIT_PERIOD = 32;
+    const START_ANGLE = Math.PI * 0.36;
 
     // Compute consistent geometry anchored to the 1760px grid container
     const getEclipseGeometry = (w: number, h: number) => {
@@ -93,25 +91,6 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
       };
     };
 
-    // Mouse Move Listener
-    const handleMouseMove = (e: MouseEvent) => {
-      if (isTouch) return;
-      const rect = canvas.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-
-      const { cx, cy } = getEclipseGeometry(width, height);
-      targetAngle = Math.atan2(mouseY - cy, mouseX - cx);
-    };
-
-    const handleTouchStart = () => {
-      isTouch = true;
-      targetAngle = DEFAULT_ANGLE;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
-
     // Handle Window Resize
     const handleResize = () => {
       if (!canvas.parentElement) return;
@@ -123,7 +102,7 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Animation Loop (Strict 60 FPS)
+    // Animation Loop (Strict 60 FPS Autonomous Orbit)
     let animationFrameId: number;
     const startTime = performance.now();
 
@@ -131,11 +110,8 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
       animationFrameId = requestAnimationFrame(render);
       const time = (now - startTime) * 0.001;
 
-      // Cinematic Heavy Inertia (viscous LERP across circular boundary for massive astronomical body)
-      let diff = targetAngle - currentAngle;
-      while (diff < -Math.PI) diff += Math.PI * 2;
-      while (diff > Math.PI) diff -= Math.PI * 2;
-      currentAngle += diff * 0.035;
+      // Meditative, linear continuous orbit around the moon disc
+      const currentAngle = START_ANGLE + (time / ORBIT_PERIOD) * (Math.PI * 2);
 
       // Clear Canvas
       ctx.clearRect(0, 0, width, height);
@@ -316,8 +292,6 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('resize', handleResize);
     };
   }, []);

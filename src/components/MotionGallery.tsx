@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { MOTION_WORKS } from '../data.ts';
 import { MotionWork } from '../types.ts';
 import { ArrowUpRight, Play, Pause } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface MotionCardProps {
   work: MotionWork;
@@ -44,8 +45,21 @@ const MotionCard: React.FC<MotionCardProps> = ({ work }) => {
     }
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.65,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       className="bento-card group flex flex-col justify-between p-6 sm:p-7 rounded-[22px] transition-all duration-400"
@@ -144,16 +158,33 @@ const MotionCard: React.FC<MotionCardProps> = ({ work }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export const MotionGallery: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
   return (
     <section id="motion-section" className="py-24 sm:py-32 bg-[#08090C] relative">
       <div className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20">
         {/* Section Header */}
-        <div className="relative mb-16 lg:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-16 lg:mb-20"
+        >
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
@@ -180,14 +211,20 @@ export const MotionGallery: React.FC = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* 3-Column Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* 3-Column Bento Grid with Stagger */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+        >
           {MOTION_WORKS.map((work) => (
             <MotionCard key={work.id} work={work} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

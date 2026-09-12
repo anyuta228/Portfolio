@@ -1,6 +1,7 @@
 import React from 'react';
 import { CAREER_ROLES, PERSONAL_RESUME } from '../data.ts';
 import { Award, CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export const CareerTimeline: React.FC = () => {
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -9,12 +10,41 @@ export const CareerTimeline: React.FC = () => {
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.65,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section id="experience-section" className="py-24 sm:py-32 bg-[#08090C]">
       <div className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Section Header */}
-        <div className="relative mb-16 lg:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-16 lg:mb-20"
+        >
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
@@ -32,12 +62,19 @@ export const CareerTimeline: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Roles Timeline with Bento Cards (Zero Borders) */}
-        <div className="space-y-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="space-y-6"
+        >
           {CAREER_ROLES.map((role, idx) => (
-            <div
+            <motion.div
+              variants={cardVariants}
               key={idx}
               onMouseMove={handleMouseMove}
               className="bento-card p-8 sm:p-10"
@@ -100,12 +137,16 @@ export const CareerTimeline: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Qualification & Certification Banner (Zero Borders) */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           onMouseMove={handleMouseMove}
           className="mt-8 p-8 sm:p-9 bento-card flex flex-col md:flex-row md:items-center justify-between gap-6"
         >
@@ -130,7 +171,7 @@ export const CareerTimeline: React.FC = () => {
           >
             Сертификаты на Dprofile
           </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>

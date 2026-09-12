@@ -77,7 +77,7 @@ const InteractiveMediaBlock: React.FC<MediaBlockProps> = ({
         </div>
 
         {/* Mode Switcher Tabs */}
-        <div className="flex items-center gap-1.5 bg-white/[0.04] p-1.5 rounded-full border border-white/[0.08] self-start sm:self-auto backdrop-blur-md">
+        <div className="flex items-center gap-1.5 bg-white/[0.04] p-1.5 rounded-full border-0 self-start sm:self-auto backdrop-blur-md">
           <button
             onClick={() => setActiveTab('screens')}
             className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
@@ -104,12 +104,12 @@ const InteractiveMediaBlock: React.FC<MediaBlockProps> = ({
       </div>
 
       {/* Main Container */}
-      <div className="w-full max-w-[1440px] mx-auto rounded-2xl overflow-hidden bento-card p-3 sm:p-5 bg-[#08090e] border border-white/[0.06]">
+      <div className="w-full max-w-[1440px] mx-auto rounded-2xl overflow-hidden bento-card p-3 sm:p-5 bg-[#0e1118] border-0">
         {activeTab === 'screens' ? (
           <div className="relative group overflow-hidden rounded-xl bg-black/50">
             {/* Sub-switcher for alternative screen if available */}
             {secondaryImage && (
-              <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 bg-black/70 backdrop-blur-md p-1 rounded-full border border-white/10 shadow-lg">
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 bg-black/70 backdrop-blur-md p-1 rounded-full border-0 shadow-lg">
                 <button
                   onClick={() => setActiveScreenView('primary')}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
@@ -142,7 +142,7 @@ const InteractiveMediaBlock: React.FC<MediaBlockProps> = ({
             <div className="absolute bottom-4 right-4 z-20">
               <button
                 onClick={() => setActiveTab('video')}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/80 hover:bg-black text-white text-xs sm:text-sm font-medium border border-white/20 shadow-xl backdrop-blur-md transition-all hover:scale-105 active:scale-95"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/80 hover:bg-black text-white text-xs sm:text-sm font-medium border-0 shadow-xl backdrop-blur-md transition-all hover:scale-105 active:scale-95"
               >
                 <Play className="w-3.5 h-3.5 fill-current text-[#8AB4F8]" />
                 <span>Запустить Kinescope плеер</span>
@@ -165,7 +165,7 @@ const InteractiveMediaBlock: React.FC<MediaBlockProps> = ({
             </div>
 
             {/* Direct Link and AdBlock Helper */}
-            <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.04] text-xs sm:text-sm text-neutral-400 font-sans">
+            <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.02] border-0 text-xs sm:text-sm text-neutral-400 font-sans">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Если видео блокируется расширением браузера (AdBlock / Brave / VPN):</span>
@@ -580,7 +580,7 @@ export const LibriumCaseStudy: React.FC<LibriumCaseStudyProps> = ({
                 Оптимизированный хэндофф для инженеров
               </h3>
               <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
-                Полная спецификация состояний компонентов (Default, Active, Error, Disabled), физика пружинных кривых переходов и экспорт Lottie-анимаций для мобильной разработки.
+                Полная спецификация состояний компонентов (Default, Active, Error, Disabled), физика пружинных кривых переходов, интерактивные прототипы и handoff-спецификации для мобильной разработки.
               </p>
             </div>
 
@@ -602,7 +602,7 @@ export const LibriumCaseStudy: React.FC<LibriumCaseStudyProps> = ({
               </span>
             </div>
 
-            <div className="rounded-xl overflow-hidden bg-[#07090e] border border-white/[0.04] p-2 sm:p-4">
+            <div className="rounded-xl overflow-hidden bg-[#07090e] border-0 p-2 sm:p-4">
               <img
                 src="/projects/librium/design_system_preview.png"
                 alt="Дизайн-система и компоненты приложения Librium"

@@ -146,12 +146,12 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px]" />
 
         <div className="relative z-10 max-w-lg space-y-4">
-          <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto text-[#8AB4F8] shadow-[0_0_25px_rgba(138,180,248,0.25)]">
+          <div className="w-16 h-16 rounded-2xl bg-white/5 border-0 flex items-center justify-center mx-auto text-[#8AB4F8] shadow-[0_0_25px_rgba(138,180,248,0.25)]">
             <Video className="w-8 h-8" />
           </div>
 
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#8AB4F8] text-xs font-sans mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border-0 text-[#8AB4F8] text-xs font-sans mb-2">
               <span>СТАДИЯ {activeStage.step} // {activeStage.duration}</span>
             </div>
             <h3 className="font-display font-light text-2xl sm:text-3xl text-white">
@@ -236,7 +236,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
       <main className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20 pt-10 sm:pt-14 space-y-14 sm:space-y-20">
         
         {/* Project Header Block */}
-        <div className="border-b border-white/10 pb-12">
+        <div className="border-b border-white/[0.06] pb-12">
           <div className="flex flex-wrap items-center gap-3 mb-4 font-sans">
             <span className="pill-badge">
               {project.originLabel}
@@ -257,9 +257,9 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             {project.subtitle}
           </p>
 
-          {/* Quick Metrics & Meta Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/10">
-            <div className="p-6 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-2xl">
+          {/* Quick Metrics & Meta Grid (bg-[#0e1118], border-none) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/[0.06]">
+            <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
               <div className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1 font-sans">
                 Ключевой результат
               </div>
@@ -268,7 +268,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
               </div>
             </div>
 
-            <div className="p-6 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-2xl">
+            <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
               <div className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1 font-sans">
                 Фокус и статус
               </div>
@@ -283,13 +283,13 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
               </div>
             </div>
 
-            <div className="p-6 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-2xl">
+            <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
               <div className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1 font-sans">
                 Ключевые теги & инструменты
               </div>
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {project.tags.slice(0, 5).map((t, idx) => (
-                  <span key={idx} className="px-2.5 py-1 bg-white/5 border border-white/10 text-slate-300 text-xs font-medium rounded-full">
+                  <span key={idx} className="px-2.5 py-1 bg-white/[0.04] text-slate-300 text-xs font-medium rounded-full">
                     {t}
                   </span>
                 ))}
@@ -297,9 +297,9 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             </div>
           </div>
 
-          {/* Prominent Live Site / External Banner if available */}
+          {/* Prominent Live Site / External Banner if available (bg-[#0e1118], border-none) */}
           {project.externalLinks?.liveSite && (
-            <div className="mt-6 p-5 sm:p-6 bg-[#0E131F]/70 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+            <div className="mt-6 p-5 sm:p-6 bg-[#0e1118] rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#8AB4F8] shadow-[0_0_10px_rgba(138,180,248,0.8)] animate-pulse flex-shrink-0" />
                 <div>
@@ -324,7 +324,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
           )}
 
           {project.externalLinks?.dprofile && (
-            <div className="mt-6 p-5 sm:p-6 bg-[#0E131F]/70 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+            <div className="mt-6 p-5 sm:p-6 bg-[#0e1118] rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#8AB4F8] flex-shrink-0" />
                 <div>
@@ -340,7 +340,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
                 href={project.externalLinks.dprofile}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm rounded-full transition-all border border-white/10"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white/[0.08] hover:bg-white/[0.15] text-white font-semibold text-xs sm:text-sm rounded-full transition-all"
               >
                 <span>Смотреть кейс на Dprofile</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -371,7 +371,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
                     placeholder="Вставьте ссылку на MP4 / YouTube / Loom / Vimeo"
                     value={tempVideoUrl}
                     onChange={(e) => setTempVideoUrl(e.target.value)}
-                    className="px-3.5 py-2 text-xs rounded-full border border-white/20 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-[#8AB4F8] w-64 sm:w-80"
+                    className="px-3.5 py-2 text-xs rounded-full bg-[#0e1118] text-white focus:outline-none focus:ring-2 focus:ring-[#8AB4F8] w-64 sm:w-80 shadow-md"
                   />
                   <button
                     type="submit"
@@ -394,7 +394,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
                     setTempVideoUrl(customVideoUrl);
                     setIsEditingVideoUrl(true);
                   }}
-                  className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 text-xs font-medium flex items-center gap-2 transition-colors"
+                  className="px-4 py-2 rounded-full bg-[#0e1118] hover:bg-white/10 text-slate-300 text-xs font-medium flex items-center gap-2 transition-colors shadow-sm"
                 >
                   <LinkIcon className="w-3.5 h-3.5 text-[#8AB4F8]" />
                   <span>{customVideoUrl ? 'Изменить ссылку на видео' : 'Вставить ссылку на видео'}</span>
@@ -403,12 +403,12 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             </div>
           </div>
 
-          {/* 16:9 Video Canvas Frame */}
-          <div className="w-full aspect-video min-h-[380px] sm:min-h-[520px] bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+          {/* 16:9 Video Canvas Frame (bg-[#050608], border-none) */}
+          <div className="w-full aspect-video min-h-[380px] sm:min-h-[520px] bg-[#050608] rounded-3xl overflow-hidden shadow-2xl">
             {renderVideoPlayer()}
           </div>
 
-          {/* Stage Selector Pills */}
+          {/* Stage Selector Pills (border-none) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-2">
             {stages.map((stage, idx) => {
               const isActive = activeStageIndex === idx;
@@ -417,10 +417,10 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
                   key={idx}
                   type="button"
                   onClick={() => setActiveStageIndex(idx)}
-                  className={`p-4 rounded-2xl text-left transition-all border ${
+                  className={`p-4 rounded-2xl text-left transition-all ${
                     isActive
-                      ? 'bg-white/[0.08] border-[#8AB4F8] shadow-[0_0_20px_-5px_rgba(138,180,248,0.3)]'
-                      : 'bg-slate-900/40 hover:bg-slate-900/70 border-white/10 text-slate-400'
+                      ? 'bg-white/[0.1] shadow-[0_0_20px_-5px_rgba(138,180,248,0.3)]'
+                      : 'bg-[#0e1118] hover:bg-[#151b27] text-slate-400'
                   }`}
                 >
                   <div className="flex items-center justify-between text-xs font-medium mb-1 font-sans">
@@ -438,10 +438,10 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
           </div>
         </section>
 
-        {/* SECTION 2: PROBLEM STATEMENT & HYPOTHESIS */}
+        {/* SECTION 2: PROBLEM STATEMENT & HYPOTHESIS (bg-[#0e1118], border-none) */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="p-8 sm:p-10 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-3xl shadow-sm space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-300 text-xs font-medium font-sans uppercase tracking-wider border border-rose-500/20">
+          <div className="p-8 sm:p-10 bg-[#0e1118] rounded-3xl shadow-xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-300 text-xs font-medium font-sans uppercase tracking-wider">
               <span>Проблема стартапа</span>
             </div>
             <h3 className="font-display font-light text-2xl sm:text-3xl text-white">
@@ -466,8 +466,8 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             </ul>
           </div>
 
-          <div className="p-8 sm:p-10 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-3xl shadow-sm space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8AB4F8]/10 text-[#8AB4F8] text-xs font-medium font-sans uppercase tracking-wider border border-[#8AB4F8]/20">
+          <div className="p-8 sm:p-10 bg-[#0e1118] rounded-3xl shadow-xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8AB4F8]/10 text-[#8AB4F8] text-xs font-medium font-sans uppercase tracking-wider">
               <span>Продуктовая гипотеза</span>
             </div>
             <h3 className="font-display font-light text-2xl sm:text-3xl text-white">
@@ -506,10 +506,10 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.targetAudience.map((user, idx) => (
-                <div key={idx} className="p-8 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-3xl shadow-sm space-y-3">
+                <div key={idx} className="p-8 bg-[#0e1118] rounded-3xl shadow-xl space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="font-display font-medium text-xl text-white">{user.persona}</span>
-                    <span className="text-xs px-3 py-1 bg-white/5 text-slate-300 font-medium rounded-full border border-white/10 font-sans">
+                    <span className="text-xs px-3 py-1 bg-white/[0.05] text-slate-300 font-medium rounded-full font-sans">
                       {user.role}
                     </span>
                   </div>
@@ -537,37 +537,37 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             </div>
           </div>
 
-          <div className="h-[460px] sm:h-[580px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black/80">
+          <div className="h-[460px] sm:h-[580px] rounded-3xl overflow-hidden shadow-2xl bg-[#050608]">
             <ProjectPreview project={project} />
           </div>
 
-          {/* Design System Highlights */}
+          {/* Design System Highlights (bg-[#0e1118], border-none) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-5 bg-slate-900/40 border border-white/10 rounded-2xl">
+            <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
               <div className="text-xs text-slate-400 font-medium font-sans">Цветовая концепция</div>
               <div className="text-base font-medium text-white mt-1">Deep Eclipse Spectrum</div>
-              <div className="text-xs text-slate-400 mt-1">Глубокий обсидиановый фон, холодный фотонный белый и призматический ореол</div>
+              <div className="text-xs text-slate-400 mt-1 leading-relaxed">Глубокий обсидиановый фон, холодный фотонный белый и призматический ореол</div>
             </div>
-            <div className="p-5 bg-slate-900/40 border border-white/10 rounded-2xl">
+            <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
               <div className="text-xs text-slate-400 font-medium font-sans">Типографика</div>
               <div className="text-base font-medium text-white mt-1">Unbounded + Onest</div>
-              <div className="text-xs text-slate-400 mt-1">Геометрический футуристический дисплей и чистый гротеск с поддержкой кириллицы</div>
+              <div className="text-xs text-slate-400 mt-1 leading-relaxed">Геометрический футуристический дисплей и чистый гротеск с поддержкой кириллицы</div>
             </div>
-            <div className="p-5 bg-slate-900/40 border border-white/10 rounded-2xl">
+            <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
               <div className="text-xs text-slate-400 font-medium font-sans">Компонентный подход</div>
               <div className="text-base font-medium text-white mt-1">Figma Token Architecture</div>
-              <div className="text-xs text-slate-400 mt-1">80+ переиспользуемых атомов, молекул и организмов для масштабирования</div>
+              <div className="text-xs text-slate-400 mt-1 leading-relaxed">80+ переиспользуемых атомов, молекул и организмов для масштабирования</div>
             </div>
-            <div className="p-5 bg-slate-900/40 border border-white/10 rounded-2xl">
+            <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
               <div className="text-xs text-slate-400 font-medium font-sans">Моушн & Микро-отклик</div>
               <div className="text-base font-medium text-white mt-1">Spring Physics 60 FPS</div>
-              <div className="text-xs text-slate-400 mt-1">Кинетические парящие пилюли, плавные переходы и динамическая подсветка</div>
+              <div className="text-xs text-slate-400 mt-1 leading-relaxed">Кинетические парящие пилюли, плавные переходы и динамическая подсветка</div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 5: ACHIEVEMENTS & BUSINESS OUTCOMES */}
-        <section className="p-8 sm:p-12 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-3xl shadow-sm space-y-8">
+        {/* SECTION 5: ACHIEVEMENTS & BUSINESS OUTCOMES (bg-[#0e1118], border-none) */}
+        <section className="p-8 sm:p-12 bg-[#0e1118] rounded-3xl shadow-xl space-y-8">
           <div>
             <div className="text-xs font-medium uppercase tracking-wider text-[#8AB4F8] mb-1 flex items-center gap-2 font-sans">
               <CheckCircle2 className="w-4 h-4" />
@@ -610,7 +610,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
         </section>
 
         {/* SECTION 6: NEXT PROJECT SWITCHER & CONTACT */}
-        <section className="pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <section className="pt-10 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <div className="text-xs uppercase font-medium text-slate-400 tracking-wider font-sans">Следующая работа</div>
             <button
@@ -630,7 +630,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             <button
               type="button"
               onClick={onBack}
-              className="px-6 py-3 rounded-full glass-pill hover:border-[#8AB4F8]/40 text-slate-300 hover:text-white font-medium text-sm transition-all"
+              className="px-6 py-3 rounded-full bg-[#0e1118] hover:bg-white/10 text-slate-300 hover:text-white font-medium text-sm transition-all border-0 backdrop-blur-md"
             >
               Вернуться ко всем проектам
             </button>

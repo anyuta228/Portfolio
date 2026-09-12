@@ -1,6 +1,7 @@
 import React from 'react';
 import { SKILL_GROUPS } from '../data.ts';
 import { Check } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export const SkillsMatrix: React.FC = () => {
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -9,12 +10,41 @@ export const SkillsMatrix: React.FC = () => {
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.65,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section id="skills-section" className="py-24 sm:py-32 bg-[#08090C]">
       <div className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Section Header */}
-        <div className="relative mb-16 lg:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-16 lg:mb-20"
+        >
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
@@ -32,12 +62,19 @@ export const SkillsMatrix: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3 Large Modular Bento Cards (Zero Borders) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           {SKILL_GROUPS.map((group, idx) => (
-            <div
+            <motion.div
+              variants={cardVariants}
               key={idx}
               onMouseMove={handleMouseMove}
               className="bento-card p-8 sm:p-9 flex flex-col justify-between"
@@ -68,13 +105,17 @@ export const SkillsMatrix: React.FC = () => {
                 <span>Глубина: Middle+ / Lead</span>
                 <span className="text-neutral-200">В кейсах</span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Toolchain Panel (Zero Borders, Static Clean Grid) */}
-        <div
+        <motion.div
           id="tools-panel"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           onMouseMove={handleMouseMove}
           className="mt-8 p-8 sm:p-9 bento-card"
         >
@@ -82,27 +123,36 @@ export const SkillsMatrix: React.FC = () => {
             Инструменты и стек
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3.5 relative z-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3.5 relative z-10">
             {[
               { name: 'Figma', role: 'Design Systems' },
               { name: 'Miro', role: 'UX Flows & CJM' },
               { name: 'Framer', role: 'Прототипы' },
               { name: 'After Effects', role: 'Motion Physics' },
-              { name: 'Spine 2D', role: 'Скелетный арт' },
-              { name: 'Lottie', role: 'JSON микро-UI' },
+              { 
+                name: 'Antigravity + Gemini', 
+                role: 'AI-Assisted Prototyping & Development',
+                highlight: true 
+              },
               { name: 'Photoshop', role: '2D графика' },
               { name: 'Analytics', role: 'Core Metrics' }
             ].map((tool, tIdx) => (
               <div
                 key={tIdx}
-                className="p-4 bg-white/[0.03] rounded-xl text-center hover:bg-white/[0.06] transition-all"
+                className={`p-4 rounded-xl text-center transition-all ${
+                  tool.highlight
+                    ? 'bg-[#0e1118] bg-gradient-to-b from-[#8AB4F8]/[0.09] to-transparent hover:from-[#8AB4F8]/[0.18]'
+                    : 'bg-white/[0.03] hover:bg-white/[0.06]'
+                }`}
               >
-                <div className="text-white font-display font-medium text-base mb-1">{tool.name}</div>
+                <div className={`font-display font-medium text-base mb-1 ${tool.highlight ? 'text-white drop-shadow-[0_0_12px_rgba(138,180,248,0.4)]' : 'text-white'}`}>
+                  {tool.name}
+                </div>
                 <div className="text-xs text-neutral-400 leading-snug font-sans">{tool.role}</div>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

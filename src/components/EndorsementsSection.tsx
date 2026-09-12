@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ENDORSEMENTS } from '../data.ts';
 import { ArrowUpRight, CheckCircle2, Quote, ShieldCheck, Languages, Sparkles } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 export const EndorsementsSection: React.FC = () => {
   const [showRussianTranslation, setShowRussianTranslation] = useState<boolean>(false);
@@ -15,12 +15,41 @@ export const EndorsementsSection: React.FC = () => {
   const primaryEndorsement = ENDORSEMENTS[0]; // Alex Vance / PPKAS
   const secondaryEndorsements = ENDORSEMENTS.slice(1); // Evgeny Chernov (Internship) & Evgeny Kuzmin (Education)
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.65,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section id="endorsements-section" className="py-24 sm:py-32 bg-[#08090C] relative">
       <div className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Section Header */}
-        <div className="relative mb-16 lg:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-16 lg:mb-20"
+        >
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
@@ -54,11 +83,15 @@ export const EndorsementsSection: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Featured Hero Recommendation: Alex Vance / PPKAS International Core Team */}
         {primaryEndorsement && (
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             onMouseMove={handleMouseMove}
             className="bento-card p-8 sm:p-12 lg:p-14 rounded-[26px] mb-8 relative group bg-[#0e1118]"
           >
@@ -156,13 +189,20 @@ export const EndorsementsSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* Secondary 2-Column Bento Grid (1: Internship @ UPROCK / Evgeny Chernov, 2: Education & Gold Certificate @ UPROCK / Evgeny Kuzmin) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        >
           {secondaryEndorsements.map((item) => (
-            <div
+            <motion.div
+              variants={cardVariants}
               key={item.id}
               onMouseMove={handleMouseMove}
               className="bento-card p-8 sm:p-10 rounded-[24px] flex flex-col justify-between group bg-[#0e1118]"
@@ -198,7 +238,7 @@ export const EndorsementsSection: React.FC = () => {
                 {/* Author Card Footer */}
                 <div className="pt-6 border-t border-white/[0.06]">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-white/10 to-white/[0.02] flex items-center justify-center font-display font-medium text-lg text-white shadow-none border border-white/5">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-white/10 to-white/[0.02] flex items-center justify-center font-display font-medium text-lg text-white shadow-none border-0">
                       {item.authorInitials}
                     </div>
                     <div>
@@ -227,9 +267,9 @@ export const EndorsementsSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -25,11 +25,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#0B0F19]/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-[#F8FAFC]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
+      <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#08090C] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-[#F8FAFC]">
         
         {/* Top Controls */}
-        <div className="flex items-center justify-between pb-6 mb-8">
+        <div className="flex items-center justify-between pb-6 mb-8 border-b border-white/[0.06]">
           <div className="flex items-center gap-2.5 text-[#8AB4F8] font-semibold text-sm font-sans">
             <span className="w-2.5 h-2.5 rounded-full bg-[#8AB4F8] shadow-[0_0_8px_rgba(138,180,248,0.8)]" />
             <span>Официальное резюме</span>
@@ -38,7 +38,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <button
               type="button"
               onClick={() => window.print()}
-              className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+              className="p-2.5 rounded-full bg-[#0e1118] hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
               title="Печать"
             >
               <Printer className="w-4 h-4" />
@@ -46,7 +46,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <button
               type="button"
               onClick={onClose}
-              className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+              className="p-2.5 rounded-full bg-[#0e1118] hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+              title="Закрыть"
             >
               <X className="w-4 h-4" />
             </button>
@@ -150,10 +151,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="text-sm text-slate-400 mt-1 font-sans">{PERSONAL_RESUME.qualification.school} ({PERSONAL_RESUME.qualification.year})</div>
           </div>
 
-          <div className="p-6 bg-slate-950/60 border border-white/10 rounded-2xl">
+          <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
             <div className="text-xs text-slate-400 uppercase font-semibold mb-2 font-sans">Ключевой стек</div>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-              Figma, Miro, Framer, Design Systems, CJM, User Research, Usability Testing, Web3 & Game UI, A/B Testing, Spine 2D, Lottie.
+              Figma, Miro, Framer, Design Systems, CJM, User Research, Usability Testing, Web3 & Game UI, A/B Testing, Antigravity + Gemini AI Prototyping.
             </p>
           </div>
         </div>

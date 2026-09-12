@@ -1,0 +1,65 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <!-- Corona glow filter -->
+    <filter id="corona-blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Intense diamond flare filter -->
+    <filter id="flare-blur" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Corona ambient radial aura -->
+    <radialGradient id="corona-aura" cx="72%" cy="28%" r="65%" fx="72%" fy="28%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+      <stop offset="18%" stop-color="#8AB4F8" stop-opacity="0.9" />
+      <stop offset="42%" stop-color="#A78BFA" stop-opacity="0.5" />
+      <stop offset="70%" stop-color="#818CF8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#08090C" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Razor-edge crescent stroke gradient -->
+    <linearGradient id="arc-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0" />
+      <stop offset="40%" stop-color="#8AB4F8" stop-opacity="0.8" />
+      <stop offset="80%" stop-color="#FFFFFF" stop-opacity="1" />
+      <stop offset="100%" stop-color="#C4B5FD" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base deep circular disc -->
+  <circle cx="32" cy="32" r="30" fill="#08090C" />
+
+  <!-- Outer atmospheric corona haze -->
+  <circle cx="32" cy="32" r="29" fill="url(#corona-aura)" opacity="0.85" />
+
+  <!-- Inner eclipse shadow occulting disc creating precise crescent -->
+  <circle cx="28.5" cy="34.5" r="27.5" fill="#08090C" />
+
+  <!-- Luminous razor crescent rim -->
+  <path
+    d="M 24 6 A 29 29 0 0 1 58 40"
+    stroke="url(#arc-gradient)"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    filter="url(#corona-blur)"
+  />
+
+  <!-- High-intensity diamond ring flare (focal point at 48, 16) -->
+  <circle cx="48" cy="16" r="4.5" fill="#8AB4F8" opacity="0.6" filter="url(#flare-blur)" />
+  <circle cx="48" cy="16" r="2.4" fill="#FFFFFF" filter="url(#flare-blur)" />
+  <circle cx="48" cy="16" r="1.2" fill="#FFFFFF" />
+
+  <!-- Micro optical flare rays -->
+  <line x1="48" y1="10" x2="48" y2="22" stroke="#FFFFFF" stroke-width="0.8" stroke-linecap="round" opacity="0.8" />
+  <line x1="42" y1="16" x2="54" y2="16" stroke="#FFFFFF" stroke-width="0.8" stroke-linecap="round" opacity="0.8" />
+</svg>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PERSONAL_RESUME, CONTACT_CHANNELS } from '../data.ts';
 import { Send, Copy, Check, ArrowUpRight } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export const ContactSection: React.FC = () => {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
@@ -25,12 +26,41 @@ export const ContactSection: React.FC = () => {
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section id="contact-section" className="py-24 sm:py-32 bg-[#08090C]">
       <div className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Section Header */}
-        <div className="relative mb-16 lg:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-16 lg:mb-20"
+        >
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/50 mb-6">
@@ -48,13 +78,17 @@ export const ContactSection: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           
           {/* Left Column: Direct Telegram Quick Message Form with Bento Card (7 cols, Zero Borders) */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             onMouseMove={handleMouseMove}
             className="lg:col-span-7 bento-card p-8 sm:p-10"
           >
@@ -92,16 +126,23 @@ export const ContactSection: React.FC = () => {
                 </div>
               </form>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Channels Matrix (5 cols, Zero Borders) */}
-          <div className="lg:col-span-5 space-y-3">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="lg:col-span-5 space-y-3"
+          >
             <div className="text-xs uppercase tracking-[0.16em] text-white/50 mb-4 font-sans font-medium">
               Прямые контакты и профили
             </div>
 
             {CONTACT_CHANNELS.map((ch, idx) => (
-              <div
+              <motion.div
+                variants={cardVariants}
                 key={idx}
                 onMouseMove={handleMouseMove}
                 className="bento-card p-5 rounded-2xl flex items-center justify-between group"
@@ -116,7 +157,7 @@ export const ContactSection: React.FC = () => {
                 <div className="flex items-center gap-2 relative z-10">
                   <button
                     type="button"
-                    onClick={() => handleCopy(ch.value, ch.handle)}
+                    onClick={() => handleCopy(ch.url, ch.handle)}
                     className="p-2 rounded-full hover:bg-white/[0.08] text-white/50 hover:text-white transition-colors"
                     title="Скопировать"
                   >
@@ -137,9 +178,9 @@ export const ContactSection: React.FC = () => {
                     <ArrowUpRight className="w-4 h-4" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
 
