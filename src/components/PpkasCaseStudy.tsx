@@ -33,6 +33,27 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
 
+  const FIGMA_GAMES = [
+    {
+      file: './images/cases/ppkas/games/game_1_space_hopper_figma.png',
+      badge: 'Figma Canvas // 01',
+      title: 'Space Hopper: сборка уровней и спрайты платформ',
+      description: 'Сетка динамических платформ, физика прыжка, состояния анимации астронавта и тайминги фреймов для механики вертикального раннера'
+    },
+    {
+      file: './images/cases/ppkas/games/game_2_crazy_rocket_biomes_figma.png',
+      badge: 'Figma Canvas // 02',
+      title: 'Crazy Rocket: матрица 4 биомов, цветовые палитры и спрайты',
+      description: 'Визуальная вариативность локаций (Космос, Вулканический мир, Сакура-планета, Арктика), анимации препятствий, астероидов и спрайты ракеты'
+    },
+    {
+      file: './images/cases/ppkas/games/game_3_t_catcher_flow_ui.png',
+      badge: 'Figma Canvas // 03',
+      title: 'T-Catcher: игровая механика и интерфейсный цикл',
+      description: 'Сквозной флоу казуальной мини-игры: экран старта (Get Ready / Dual Tap), конвейерные механики ловли ассетов (D-Pad управление) и экран Game Over с начислением наград'
+    }
+  ];
+
   const TELEGRAM_STORIES = [
     {
       file: './images/cases/ppkas/telegram/stories/story_1_fresh_p2e.png',
@@ -388,40 +409,55 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
         {/* БЛОК 3: Игровая графика и сборка ассетов в Figma                          */}
         {/* ========================================================================= */}
         <section className="scroll-mt-24 space-y-6">
-          <div>
-            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
-              <Figma className="w-4 h-4" />
-              Game Design & Sprites
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow mb-3">
-              Игровая графика и сборка ассетов в Figma
-            </h2>
-            <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed max-w-4xl">
-              Создание UI-компонентов, проработка состояний препятствий, платформ и спрайтов для двух мини-игр прямо в Figma для быстрой интеграции разработчиками
-            </p>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#8AB4F8] font-sans font-medium mb-3">
+                <Figma className="w-4 h-4" />
+                Game Design & Sprites
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-display font-light text-white tracking-tight eclipse-glow mb-3">
+                Игровая графика и сборка ассетов в Figma
+              </h2>
+              <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed max-w-4xl">
+                Создание UI-компонентов, проработка состояний препятствий, платформ и спрайтов для мини-игр экосистемы прямо в Figma для оперативной сборки разработчиками
+              </p>
+            </div>
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] text-xs text-[#8AB4F8] font-sans shrink-0">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              <span>3 макета из Figma</span>
+            </div>
           </div>
 
-          {/* Slot for Figma Game Assets */}
-          <div
-            onMouseMove={handleMouseMove}
-            className="bento-card p-10 sm:p-14 bg-[#0e1118] border-0 text-center rounded-2xl relative overflow-hidden"
-          >
-            <div className="max-w-2xl mx-auto flex flex-col items-center justify-center space-y-4 relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-[#8AB4F8]/[0.08] flex items-center justify-center text-[#8AB4F8] mb-2">
-                <Layers className="w-8 h-8" />
+          {/* Figma Game Assets Showcase */}
+          <div className="space-y-6">
+            {FIGMA_GAMES.map((game, idx) => (
+              <div
+                key={idx}
+                onMouseMove={handleMouseMove}
+                className="bento-card p-6 sm:p-8 bg-[#0e1118] border-0 rounded-2xl group hover:bg-[#121622] transition-colors"
+              >
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
+                  <div>
+                    <span className="text-[11px] font-sans font-medium uppercase tracking-wider text-[#8AB4F8] block mb-1">
+                      {game.badge}
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-display font-medium text-white">
+                      {game.title}
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-neutral-400 font-sans md:max-w-md leading-relaxed">
+                    {game.description}
+                  </p>
+                </div>
+                <div className="w-full rounded-xl overflow-hidden bg-black/50 border-0 relative group-hover:scale-[1.005] transition-transform duration-300">
+                  <img
+                    src={game.file}
+                    alt={game.title}
+                    className="w-full h-auto object-contain filter drop-shadow-md"
+                  />
+                </div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
-                [Слот под скриншоты ассетов из Figma]
-              </h3>
-              <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
-                Сюда будут автоматически встроены скриншоты UI-компонентов, платформ, препятствий и игровых спрайтов при передаче файлов
-              </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] text-xs text-white/60 font-mono">
-                <span>Папка: /public/images/cases/ppkas/games/</span>
-              </div>
-            </div>
-            {/* Subtle background mesh glow */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#8AB4F8]/[0.02] via-transparent to-transparent pointer-events-none" />
+            ))}
           </div>
         </section>
 
