@@ -26,9 +26,11 @@ export const HeroVoid: React.FC<HeroVoidProps> = ({ onOpenResume, onExploreWorks
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="mb-8"
           >
-            <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/70 tracking-wider uppercase">
+            <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-sans font-medium text-white/70 tracking-wider">
               <span className="w-8 h-px bg-white/30" />
-              атома / anna aghabekyan • middle+ product designer
+              <span className="text-white/90">атома</span>
+              <span className="text-white/30">/</span>
+              <span className="uppercase tracking-wider text-white/70">Anna Aghabekyan • Middle+ Product Designer</span>
             </span>
           </motion.div>
 

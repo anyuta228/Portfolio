@@ -49,9 +49,10 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
       });
     }
 
-    // Autonomous orbital cycle (32 seconds for full 360-degree meditative rotation)
-    const ORBIT_PERIOD = 32;
-    const START_ANGLE = Math.PI * 0.36;
+    // Autonomous orbital cycle (75 seconds for ultra-slow, meditative 360-degree rotation)
+    const ORBIT_PERIOD = 75;
+    // Start angle strictly in the top-right quadrant (~40 degrees above horizontal: dirX > 0, dirY < 0)
+    const START_ANGLE = -Math.PI * (40 / 180);
 
     // Compute consistent geometry anchored to the 1760px grid container
     const getEclipseGeometry = (w: number, h: number) => {
@@ -65,13 +66,14 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
         const containerLeft = Math.max(0, (w - maxContainerWidth) / 2) + padding;
         const contentWidth = currentContainerWidth - padding * 2;
 
-        // The center of the right column sits at ~75% of the container content width
-        const cx = containerLeft + contentWidth * 0.74;
-        const cy = h * 0.42;
-        // Radius fits comfortably inside the column and viewport, increased by ~12-15%
-        const maxRByWidth = contentWidth * 0.195;
-        const maxRByHeight = h * 0.32;
-        const R = Math.min(Math.max(maxRByWidth, 220), maxRByHeight, 290);
+        // The center of the eclipse sits confidently in the right column (~79% of container content width)
+        // creating a solid optical counterweight to the typography on the left without overlapping
+        const cx = containerLeft + contentWidth * 0.79;
+        const cy = h * 0.44;
+        // Radius increased by ~12-15% (diameter ~640-670px) for bold celestial presence
+        const maxRByWidth = contentWidth * 0.22;
+        const maxRByHeight = h * 0.37;
+        const R = Math.min(Math.max(maxRByWidth, 250), maxRByHeight, 335);
 
         return { cx, cy, R };
       }
@@ -79,15 +81,15 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
       if (isTablet) {
         return {
           cx: w * 0.5,
-          cy: h * 0.38,
-          R: Math.min(h * 0.25, 210),
+          cy: h * 0.40,
+          R: Math.min(h * 0.28, 230),
         };
       }
 
       return {
         cx: w * 0.5,
-        cy: h * 0.34,
-        R: Math.min(w * 0.40, 160),
+        cy: h * 0.35,
+        R: Math.min(w * 0.44, 180),
       };
     };
 
