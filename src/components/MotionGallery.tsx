@@ -198,7 +198,7 @@ export const MotionGallery: React.FC = () => {
             </div>
             <div className="lg:col-span-5 lg:pb-2">
               <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans mb-6">
-                Интерактивные микродействия, кинетика компонентов и пространственные прототипы интерфейсов из профиля Dribbble. Плавный отклик, 60 FPS и тактильная физика переходов
+                Интерактивные микродействия, пространственная динамика и кинетика интерфейсов из профиля Dribbble. Все концепты и микроанимации собраны вручную в Adobe After Effects (60 FPS, тактильный физический отклик)
               </p>
               <a
                 href="https://dribbble.com/annaatoma"

@@ -49,8 +49,8 @@ export const HeroEclipse: React.FC<HeroEclipseProps> = ({ className = '' }) => {
       });
     }
 
-    // Autonomous orbital cycle (75 seconds for ultra-slow, meditative 360-degree rotation)
-    const ORBIT_PERIOD = 75;
+    // Autonomous orbital cycle (150 seconds for astronomical ultra-slow, meditative 360-degree rotation)
+    const ORBIT_PERIOD = 150;
     // Start angle strictly in the top-right quadrant (~40 degrees above horizontal: dirX > 0, dirY < 0)
     const START_ANGLE = -Math.PI * (40 / 180);
 

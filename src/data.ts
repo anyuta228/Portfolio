@@ -3,8 +3,8 @@ import { ProjectCase, CareerRole, ContactChannel, MotionWork, Endorsement } from
 export const PERSONAL_RESUME = {
   name: 'Анна Агабекян',
   enName: 'Anna Aghabekyan',
-  title: 'Продуктовый дизайнер',
-  roleLevel: 'Middle+ Product Designer',
+  title: 'Product UX/UI Designer',
+  roleLevel: 'Product UX/UI Designer • AI-Assisted Full-Cycle',
   experienceYears: '4 года 11 месяцев',
   expectedSalary: 'Обговаривается',
   location: 'Октябрьский, Башкортостан',
@@ -24,16 +24,16 @@ export const PERSONAL_RESUME = {
     honors: 'ЗОЛОТОЙ СЕРТИФИКАТ',
     school: 'UPROCK'
   },
-  bio: 'Я проектирую интерфейсы для сложных цифровых продуктов более 5 лет. Провожу проекты полного цикла: от CustDev-интервью и CJM до дизайн-систем, компонентных библиотек и развертывания в облачной инфраструктуре. В фокусе: системность, скорость взаимодействия и конверсионные петли. В портфолио — P2E-экосистема PPKAS на блокчейне Kaspa (+22% D1 Retention, 89% конверсия онбординга), EdTech-платформа микрообучения LIBRIUM, масштабируемые дизайн-системы для B2B SaaS (KFBIO, FitVend, StitchLab) и коммерческий запуск веб-сервиса кафе «Белоснежка» (дизайн + фронтенд + серверная часть).',
+  bio: 'Я проектирую интерфейсы для сложных цифровых продуктов более 5 лет. Проектирую интерфейсы вручную в Figma, а фронтенд и серверную логику для пет-проектов и коммерческих сервисов (как «Белоснежка») реализую в коде с помощью связки современных AI-агентов (Antigravity + Gemini). В фокусе: системность, скорость взаимодействия и конверсионные петли. В портфолио — P2E-экосистема PPKAS на блокчейне Kaspa (+22% D1 Retention, 89% конверсия создания Web3-кошельков), EdTech-платформа адаптивного обучения LIBRIUM, масштабируемые дизайн-системы для B2B SaaS (KFBIO, FitVend, StitchLab) и запуск веб-сервиса кафе «Белоснежка» (дизайн + фронтенд + серверная часть с AI).',
 };
 
 export const CORE_METRICS = [
-  { value: '+22%', label: 'D1 Retention', context: 'Web3 / Kaspa Network' },
-  { value: '89%', label: 'Конверсия онбординга', context: 'Некастодиальные кошельки' },
-  { value: '5m → 1m', label: 'Task Velocity', context: 'B2B SaaS Dashboard' },
-  { value: '-40%', label: 'Handoff Time', context: 'Design System Ops' },
-  { value: '+30%', label: 'Воронка курсов', context: 'EdTech / LIBRIUM Mobile' },
-  { value: 'End-to-End', label: 'Full-Stack релиз', context: 'Figma → React → Cloud' }
+  { value: '89%', label: 'Конверсия Web3-кошельков', context: 'Переработка процесса нанесения токенов и кастомной настройки (PPKAS)' },
+  { value: '+22%', label: 'Рост Day 1 Retention', context: 'Поэтапный онбординг с мгновенным доступом к игре в P2E платформе' },
+  { value: '+20%', label: 'Оптимизация регистрации', context: 'Комплексный UX-аудит и устранение критических барьеров' },
+  { value: '5 мин → 1 мин', label: 'Сокращение времени задач', context: 'Редизайн UX/UI панели управления B2B SaaS' },
+  { value: '+30%', label: 'Завершенные регистрации', context: 'Рост в 1-й месяц: переработка флоу записи на мобильные курсы' },
+  { value: '-40%', label: 'Передача макетов в код', context: 'Масштабируемая дизайн-система в Figma из 50+ мастер-компонентов' }
 ];
 
 export const SKILL_GROUPS = [
@@ -66,10 +66,10 @@ export const SKILL_GROUPS = [
     category: 'Отраслевой фокус & Технологии',
     code: 'MOD_03',
     skills: [
-      'ATOMA: Full-cycle запуск продуктов под ключ',
-      'Frontend & Backend разработка для веб-сервисов',
-      'DevOps: аренда хостинга, покупка домена, DNS & SSL',
-      'EdTech: микрообучение и графы знаний',
+      'AI-Assisted Full-Cycle Development (Antigravity + Gemini)',
+      'Проектирование в Figma и запуск сервисов в коде с AI',
+      'Релиз веб-сервисов: аренда хостинга, домен, DNS & SSL',
+      'EdTech: адаптивное обучение и графы знаний',
       'Web3 & блокчейн (Kaspa Network)',
       'Некастодиальные кошельки & безопасность (DevSecOps)'
     ]
@@ -88,12 +88,12 @@ export const PROJECTS: ProjectCase[] = [
     isLatest: true,
     isInProgress: true,
     period: '2025 — 2026 • В разработке',
-    role: 'Lead UX/UI Designer (Manual Figma) & AI Full-Stack Developer',
+    role: 'Product UX/UI Designer (Manual Figma) & AI-Assisted Dev',
     company: 'Кафе «Белоснежка» (г. Октябрьский)',
     tags: ['В разработке', 'Live WIP', 'Figma (Manual UX/UI)', 'AI-Assisted Dev', 'Онлайн-меню', 'Умная корзина', 'HoReCa Digital', 'belosnezhka-cafe.ru'],
-    metrics: 'Авторский UX/UI + AI Full-Stack запуск, онлайн-меню и корзина на belosnezhka-cafe.ru',
-    description: 'Цифровая трансформация легендарного кафе (г. Октябрьский, с 2003 года). Полный авторский UX/UI-дизайн спроектирован вручную в Figma, архитектура фронтенда и бэкенда реализована при поддержке AI-инструментов.',
-    longDescription: 'Проект решает задачу комплексной цифровой трансформации легендарного заведения в г. Октябрьский (работает с 2003 года). Полный UX/UI-дизайн спроектирован вручную Анной в Figma: визуальный стиль, дизайн-система, адаптивные сетки, каталог кухни и бара («Мангал и стейки», «Салаты», «Банкетные залы»), интерактивная корзина и предзаказ. Архитектура фронтенда и бэкенда реализована при поддержке современных AI-инструментов, обеспечивая быстрый отклик и боевой деплой на домене belosnezhka-cafe.ru.',
+    metrics: 'Авторский UX/UI + запуск веб-сервиса с AI, онлайн-меню и корзина на belosnezhka-cafe.ru',
+    description: 'Цифровая трансформация легендарного кафе (г. Октябрьский, с 2003 года). Полный авторский UX/UI-дизайн спроектирован вручную в Figma, архитектура фронтенда и серверной логики реализована в коде при поддержке современных AI-агентов (Antigravity + Gemini).',
+    longDescription: 'Проект решает задачу комплексной цифровой трансформации легендарного заведения в г. Октябрьский (работает с 2003 года). Полный UX/UI-дизайн спроектирован вручную Анной в Figma: визуальный стиль, дизайн-система, адаптивные сетки, каталог кухни и бара («Мангал и стейки», «Салаты», «Банкетные залы»), интерактивная корзина и предзаказ. Фронтенд и серверная логика реализованы в коде с помощью связки современных AI-агентов (Antigravity + Gemini), обеспечивая быстрый отклик и боевой деплой на домене belosnezhka-cafe.ru.',
     problemStatement: 'У заведения отсутствовал централизованный веб-сервис: гости искали меню по разрозненным фотографиям в соцсетях, что снижало конверсию в заказы и бронирование столиков.',
     solutionHypothesis: 'Быстрый адаптивный веб-сервис с онлайн-меню, интерактивной корзиной, кнопками прямого предзаказа и локацией в г. Октябрьский увеличит приток гостей и структурирует поток обращений.',
     duties: [
@@ -101,14 +101,14 @@ export const PROJECTS: ProjectCase[] = [
       'Полное ручное проектирование UX/UI в Figma: фирменная стилистика, дизайн-система компонентов, сетки для десктопа и смартфонов',
       'Проектирование интерактивного онлайн-меню по категориям (мангал, стейки, салаты, напитки, банкетные залы)',
       'Проектирование сценариев умной корзины и быстрого оформления предзаказа',
-      'Разработка архитектуры фронтенда и бэкенда при поддержке AI-инструментов',
+      'Реализация фронтенда и серверной логики в коде при поддержке AI-агентов (Antigravity + Gemini)',
       'Инфраструктура: покупка и делегирование домена belosnezhka-cafe.ru, хостинг с SSL-сертификатом, боевой продакшн-деплой'
     ],
     achievements: [
       'Создан авторский UX/UI-дизайн веб-сервиса с премиальной гастрономической эстетикой и адаптивностью под смартфоны',
       'Проект успешно запущен в боевой продакшн на домене https://belosnezhka-cafe.ru/ (статус Live WIP / активное развитие)',
       'Интегрированы онлайн-меню кухни и бара, умная корзина и быстрое бронирование',
-      'Полная синергия ручного проектирования в Figma и скоростной разработки при поддержке AI'
+      'Полная синергия ручного проектирования в Figma и скоростной разработки фронтенда и бэкенда с помощью AI-агентов'
     ],
     keyFeatures: [
       'Онлайн-меню: мангал и стейки, салаты, закуски, банкеты с актуальными ценами',
@@ -385,20 +385,19 @@ export const PROJECTS: ProjectCase[] = [
 export const CAREER_ROLES: CareerRole[] = [
   {
     period: '2025 — по наст. время',
-    title: 'Lead Product Designer & Full-stack Developer',
+    title: 'Product UX/UI Designer (AI-Assisted Full-Cycle)',
     company: 'ATOMA',
-    type: 'Авторская продуктовая практика, коммерческая веб-разработка',
+    type: 'Авторская продуктовая практика, AI-ассистированная веб-разработка',
     location: 'Октябрьский / Remote',
     clients: ['Кафе «Белоснежка» (г. Октябрьский)'],
     duties: [
-      'Полный цикл проектирования и запуска коммерческих цифровых продуктов под ключ (End-to-End)',
-      'UX/UI дизайн в Figma: исследование рынка HoReCa, интерактивные прототипы, мобильная эргономика',
-      'Frontend & Backend веб-разработка: верстка, анимации, серверная логика обработки заказов',
-      'DevOps & Инфраструктура: подбор и покупка доменов, аренда хостинга, настройка DNS/SSL и деплой на сервере'
+      'Полный цикл проектирования: авторский UX/UI в Figma, CustDev, интерактивные прототипы, мобильная эргономика',
+      'Реализация фронтенда и серверной логики в коде с помощью современных AI-агентов (Antigravity + Gemini)',
+      'Инфраструктура и релиз: покупка домена, аренда хостинга, настройка DNS/SSL и боевой запуск веб-сервиса'
     ],
     achievements: [
-      'Запущена авторская продуктовая практика ATOMA',
-      'С нуля спроектирован, разработан и запущен сайт кафе «Белоснежка» — https://belosnezhka-cafe.ru/ (дизайн + фронт + бэк + хостинг)'
+      'Запущена авторская продуктовая практика ATOMA (Figma UX/UI + AI-Assisted Full-Cycle Development)',
+      'С нуля спроектирован, реализован в коде и запущен веб-сервис кафе «Белоснежка» — https://belosnezhka-cafe.ru/ (онлайн-меню, корзина, бронирование)'
     ]
   },
   {
@@ -422,22 +421,48 @@ export const CAREER_ROLES: CareerRole[] = [
   },
   {
     period: 'Май 2022 — Апрель 2025',
-    title: 'Product Designer',
+    title: 'Product UX/UI Designer',
     company: 'COMMUNITY DESIGN',
-    type: 'Фриланс, удалённо',
+    type: 'Фриланс / Клиентская практика, удалённо',
     location: 'Remote',
-    clients: ['KFBIO', 'FITVEND', 'STITCHLAB'],
+    clients: ['KFBIO', 'FITVEND', 'STITCHLAB', 'LIBRIUM'],
+    clientCases: [
+      {
+        client: 'KFBIO',
+        tag: 'Корпоративный веб-сайт',
+        desc: 'Проектирование структуры и адаптивного веб-сайта компании с фокусом на ясную презентацию продуктов и технологических решений.',
+        value: 'Структура сайта и адаптивный UI'
+      },
+      {
+        client: 'FITVEND',
+        tag: 'B2B мобильное приложение',
+        desc: 'Мобильное приложение для операторов и владельцев вендинговых сетей — аналитика остатков продукции, умные алерты и своевременная логистика пополнения аппаратов.',
+        value: 'Аналитика остатков и умная логистика'
+      },
+      {
+        client: 'STITCHLAB',
+        tag: 'Брендинг & Айдентика',
+        desc: 'Разработка айдентики и минималистичного логотипа бренда с масштабированием под цифровые поверхности и физическую продукцию.',
+        value: 'Айдентика и минималистичный логотип'
+      },
+      {
+        client: 'LIBRIUM',
+        tag: 'EdTech MVP / 6 месяцев',
+        desc: 'Сквозное проектирование мобильного EdTech-приложения для адаптивного обучения с нуля за 6 месяцев (на этапе MVP/WIP): 18 CustDev-интервью, граф знаний, CJM.',
+        value: 'Сквозной дизайн EdTech MVP с нуля'
+      }
+    ],
     duties: [
       'Разработка воронок адаптации, мобильных потоков регистрации и B2B дашбордов',
-      'Создание сквозных дизайн-систем в Figma с компонентами и переменными',
+      'Создание сквозных дизайн-систем в Figma с компонентами, переменными и автолейаутами',
       'Проведение юзабилити-тестирований и синтез результатов в продуктовый бэклог'
     ],
     achievements: [
-      'EdTech: разработано обучающее приложение LIBRIUM (18 CustDev-интервью, интерактивный граф знаний, Dprofile case/181859)',
-      'EdTech воронка: переработанный флоу регистрации увеличил завершенные регистрации на 30% в 1-й месяц',
-      'FinTech: прототип P2P-платежей успешно прошел 5 сессий тестирования и включен в топ-приоритет разработки',
-      'E-commerce: создана дизайн-система из 50+ компонентов, сократившая время передачи в разработку на 40%',
-      'B2B SaaS: переработана панель управления, сократившая время выполнения задач пользователями с 5 мин до 1 мин'
+      'KFBIO: проектирование структуры и адаптивного веб-сайта компании',
+      'FITVEND: мобильное приложение для операторов и владельцев вендинговых сетей — аналитика остатков продукции, умные алерты и своевременная логистика пополнения аппаратов',
+      'STITCHLAB: разработка айдентики и минималистичного логотипа бренда',
+      'LIBRIUM: сквозное проектирование мобильного EdTech-приложения для адаптивного обучения с нуля за 6 месяцев (на этапе MVP/WIP)',
+      'B2B SaaS: редизайн UX/UI панели управления сократил время выполнения задач с 5 мин до 1 мин; EdTech: рост регистраций на 30% в 1-й месяц'
     ]
   },
   {
@@ -508,8 +533,8 @@ export const MOTION_WORKS: MotionWork[] = [
     videoUrl: 'https://cdn.dribbble.com/userupload/48902959/file/dd3fe55a7f8b412d21ae64c8d8c4fdca.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48902959/file/still-609882c3e19c68b9aa239b2a3c9610ee.png',
     dribbbleUrl: 'https://dribbble.com/shots/27698918-Cirque-du-Soleil',
-    stack: ['Stage Kinematics', 'After Effects', 'Micro-Interactions'],
-    description: 'Динамическая пластика акробатических сцен, органические переходы и пространственная кинетика интерфейса мирового циркового шоу.'
+    stack: ['After Effects', 'Stage Kinematics', 'Micro-Interactions'],
+    description: 'Динамическая пластика акробатических сцен, органические переходы и пространственная кинетика интерфейса, собранные вручную в Adobe After Effects.'
   },
   {
     id: 'birdman',
@@ -520,8 +545,8 @@ export const MOTION_WORKS: MotionWork[] = [
     videoUrl: 'https://cdn.dribbble.com/userupload/48902951/file/d71b4761feea71e0824980cfddfb7b05.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48902951/file/still-3a2ac5f2981cae4cd4f5852533c3e250.png',
     dribbbleUrl: 'https://dribbble.com/shots/27698915-Birdman',
-    stack: ['Framer Motion', 'Editorial Kinematics', 'ProtoPie'],
-    description: 'Один непрерывный дубль: оптическое масштабирование типографики, кинетические переходы между сценами и ритмический саунд-отклик.'
+    stack: ['After Effects', 'Editorial Kinematics', 'Micro-Interactions'],
+    description: 'Один непрерывный дубль: кинетическая анимация планов, оптическое масштабирование и ритмический отклик, собранные в After Effects.'
   },
   {
     id: 'mmm',
@@ -532,8 +557,8 @@ export const MOTION_WORKS: MotionWork[] = [
     videoUrl: 'https://cdn.dribbble.com/userupload/48913318/file/9130c0a9b5957123929a831796b9bf75.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48913318/file/still-19ebac6b5a924f26d479258dc441e5a0.png',
     dribbbleUrl: 'https://dribbble.com/shots/27701744-MMM',
-    stack: ['3D Spatial HUD', 'WebGL Micro-UI', 'After Effects'],
-    description: 'Генеративные паттерны, тактильный отклик контроллеров и кинетическое развертывание многослойных пространственных карточек.'
+    stack: ['After Effects', '3D Spatial HUD', 'Micro-Interactions'],
+    description: 'Генеративные паттерны, тактильный отклик контроллеров и кинетическое развертывание карточек, анимированные в After Effects.'
   },
   {
     id: 'muse',
@@ -544,8 +569,8 @@ export const MOTION_WORKS: MotionWork[] = [
     videoUrl: 'https://cdn.dribbble.com/userupload/48913343/file/a9a4537ccbfd3f9599fda41928917ced.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48913343/file/still-97ccd7961ff5737fb6b733dd7b240456.png',
     dribbbleUrl: 'https://dribbble.com/shots/27701745-Muse',
-    stack: ['Audio-Reactive UI', 'Fluid Dynamics', 'Framer Motion'],
-    description: 'Реактивная волновая форма звука, кинетические эквалайзеры и мгновенная физическая обратная связь при переключении треков.'
+    stack: ['After Effects', 'Audio-Reactive UI', 'Fluid Dynamics'],
+    description: 'Реактивная звуковая форма, кинетические эквалайзеры и плавная физика переходов треков, разработанные вручную в After Effects.'
   },
   {
     id: 'marshmello',
@@ -556,8 +581,8 @@ export const MOTION_WORKS: MotionWork[] = [
     videoUrl: 'https://cdn.dribbble.com/userupload/48902970/file/d096775841130775406708b12d6f0081.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48902970/file/still-26ade756563510cd6ca2ca9bad093102.png',
     dribbbleUrl: 'https://dribbble.com/shots/27698922-Marshmello',
-    stack: ['Interactive Stage', 'Micro-Interactions', 'Principle'],
-    description: 'Яркие визуальные вспышки, физика инерции при свайпе треклиста и пространственные карточки виртуального тура артиста.'
+    stack: ['After Effects', 'Interactive Stage', 'Micro-Interactions'],
+    description: 'Визуальные вспышки, физика инерции при свайпе треклиста и пространственные карточки тура, созданные в Adobe After Effects.'
   },
   {
     id: 'bank-of-america',
@@ -568,8 +593,8 @@ export const MOTION_WORKS: MotionWork[] = [
     videoUrl: 'https://cdn.dribbble.com/userupload/48902935/file/f13492f2b97a5a2a971a7cd9b6a31d4c.mp4',
     stillUrl: 'https://cdn.dribbble.com/userupload/48902935/file/still-11d0a4328a8de8e4cc74d7557992f703.png',
     dribbbleUrl: 'https://dribbble.com/shots/27698910-Bank-of-America',
-    stack: ['Fintech Telemetry', 'SVG Dynamics 60 FPS', 'Design Systems'],
-    description: 'Мгновенный расчет транзакционных сценариев, микроанимации перевода средств и адаптивная визуализация распределения капитала.'
+    stack: ['After Effects', 'Fintech Telemetry', 'Micro-Interactions'],
+    description: 'Мгновенный расчет сценариев, микроанимации перевода средств и динамическая визуализация капитала, созданные в After Effects.'
   }
 ];
 

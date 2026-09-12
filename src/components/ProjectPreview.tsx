@@ -229,7 +229,7 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
                 Live WIP
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/[0.06] text-white/70 text-xs font-sans font-medium">
-                AI Full-Stack
+                AI-Assisted Dev
               </span>
             </div>
           </div>
@@ -293,7 +293,7 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
 
           {/* Bottom HUD */}
           <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-sans text-white/40 relative z-10">
-            <span className="text-white/60">FIGMA (MANUAL UX/UI) • AI FULL-STACK</span>
+            <span className="text-white/60">FIGMA (MANUAL UX/UI) • AI-ASSISTED DEV</span>
             <span className="text-[#E5A65D]/80">BELOSNEZHKA-CAFE.RU</span>
           </div>
         </div>

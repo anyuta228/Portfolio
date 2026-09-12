@@ -95,20 +95,20 @@ export const HeroVoid: React.FC<HeroVoidProps> = ({ onOpenResume, onExploreWorks
           className="pt-6 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-8"
         >
           <div className="flex flex-col gap-1">
-            <span className="text-3xl lg:text-4xl font-display text-white">+22%</span>
-            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">D1 Retention (Kaspa Web3)</span>
-          </div>
-          <div className="flex flex-col gap-1">
             <span className="text-3xl lg:text-4xl font-display text-white">89%</span>
-            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">Конверсия онбординга</span>
+            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">Конверсия Web3-кошельков</span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-3xl lg:text-4xl font-display text-white">5m → 1m</span>
-            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">Task Velocity (B2B SaaS)</span>
+            <span className="text-3xl lg:text-4xl font-display text-white">+22%</span>
+            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">Рост Day 1 Retention</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-3xl lg:text-4xl font-display text-white">5 мин → 1 мин</span>
+            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">Сокращение времени задач</span>
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-3xl lg:text-4xl font-display text-white">-40%</span>
-            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">Handoff Time (Design Ops)</span>
+            <span className="text-xs text-white/60 font-sans uppercase tracking-wider">Передача макетов в код</span>
           </div>
         </motion.div>
       </div>

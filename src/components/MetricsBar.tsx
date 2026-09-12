@@ -33,7 +33,7 @@ export const MetricsBar: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-[#08090C]">
+    <section id="metrics-section" className="py-20 md:py-28 bg-[#08090C]">
       <div className="max-w-[1760px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Section Header with Eyebrow */}

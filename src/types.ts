@@ -55,6 +55,13 @@ export interface ProjectCase {
   previewVisual?: 'web3-kaspa' | 'game-hud' | 'fintech-p2p' | 'saas-dashboard' | 'uprock-mobile' | 'atoma-lab' | 'librium-mobile' | 'ez-marketplace' | 'belosnezhka-cafe';
 }
 
+export interface ClientCaseItem {
+  client: string;
+  tag: string;
+  desc: string;
+  value: string;
+}
+
 export interface CareerRole {
   period: string;
   title: string;
@@ -64,6 +71,7 @@ export interface CareerRole {
   duties: string[];
   achievements: string[];
   clients?: string[];
+  clientCases?: ClientCaseItem[];
   certificate?: string;
 }
 

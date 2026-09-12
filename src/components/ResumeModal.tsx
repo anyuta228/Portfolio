@@ -144,7 +144,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
         {/* Education & Qualification */}
         <div className="pt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 bg-slate-950/60 border border-white/10 rounded-2xl">
+          <div className="p-6 bg-slate-950/60 rounded-2xl">
             <div className="text-xs text-slate-400 uppercase font-semibold mb-2 font-sans">Квалификация</div>
             <div className="text-lg font-medium font-display text-white">{PERSONAL_RESUME.qualification.title}</div>
             <div className="text-sm text-[#8AB4F8] font-medium mt-1">{PERSONAL_RESUME.qualification.honors}</div>
@@ -154,7 +154,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           <div className="p-6 bg-[#0e1118] rounded-2xl shadow-lg">
             <div className="text-xs text-slate-400 uppercase font-semibold mb-2 font-sans">Ключевой стек</div>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-              Figma, Miro, Framer, Design Systems, CJM, User Research, Usability Testing, Web3 & Game UI, A/B Testing, Antigravity + Gemini AI Prototyping.
+              Figma, Adobe After Effects, Miro, Design Systems, CJM, CustDev & User Research, Usability Testing, Web3 & Game UI, Antigravity + Gemini (AI-Assisted Full-Cycle Prototyping & Development).
             </p>
           </div>
         </div>

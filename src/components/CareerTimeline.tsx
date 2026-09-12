@@ -1,6 +1,6 @@
 import React from 'react';
 import { CAREER_ROLES, PERSONAL_RESUME } from '../data.ts';
-import { Award, CheckCircle2 } from 'lucide-react';
+import { Award, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export const CareerTimeline: React.FC = () => {
@@ -137,6 +137,43 @@ export const CareerTimeline: React.FC = () => {
                   </ul>
                 </div>
               </div>
+
+              {/* Structured Client Cases Block (KFBIO, FITVEND, STITCHLAB, LIBRIUM) */}
+              {role.clientCases && (
+                <div className="mt-8 pt-6 border-t border-white/[0.06] relative z-10">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-[#8AB4F8] flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#8AB4F8]" />
+                      Кейсы коммерческой практики и продуктовая ценность
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {role.clientCases.map((cCase, cIdx) => (
+                      <div
+                        key={cIdx}
+                        className="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between gap-2 mb-2">
+                            <span className="font-display font-medium text-lg text-white tracking-tight">
+                              {cCase.client}
+                            </span>
+                            <span className="text-[10px] font-sans px-2 py-0.5 rounded bg-white/[0.06] text-white/70">
+                              {cCase.tag}
+                            </span>
+                          </div>
+                          <p className="text-xs text-neutral-300 leading-relaxed font-sans mb-3">
+                            {cCase.desc}
+                          </p>
+                        </div>
+                        <div className="text-[11px] font-sans text-[#8AB4F8] font-medium pt-2 border-t border-white/[0.04]">
+                          {cCase.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.div>
           ))}
         </motion.div>
@@ -164,12 +201,13 @@ export const CareerTimeline: React.FC = () => {
             </div>
           </div>
           <a
-            href={PERSONAL_RESUME.dprofileUrl}
+            href="https://dprofile.ru/case/876/ez-bystryi-poisk-ispolnitelei-i-zakazcikov"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full text-xs sm:text-sm font-sans font-medium tracking-wider uppercase self-start md:self-auto text-white transition-all bg-white/[0.06] hover:bg-white/[0.12] relative z-10"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-sans font-medium tracking-wide self-start md:self-auto text-white transition-all bg-white/[0.06] hover:bg-white/[0.12] active:scale-95 relative z-10"
           >
-            Сертификаты на Dprofile
+            <span>Верифицированный диплом UPROCK (Gold)</span>
+            <ArrowUpRight className="w-4 h-4 text-[#8AB4F8]" />
           </a>
         </motion.div>
 

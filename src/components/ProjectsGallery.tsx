@@ -21,7 +21,7 @@ interface CleanProjectMeta {
 const PROJECT_CLEAN_MAP: Record<string, CleanProjectMeta> = {
   'belosnezhka': {
     title: 'Кафе «Белоснежка»',
-    role: 'Lead UX/UI Designer (Manual Figma) & AI Full-Stack',
+    role: 'Product UX/UI Designer (Manual Figma) & AI-Assisted Dev',
     discipline: 'Digital Transformation & Web Service',
     context: '2025 — 2026 • В разработке (Live WIP)',
     summary: 'Цифровая трансформация легендарного заведения (с 2003 г.): авторский UX/UI-дизайн в Figma (дизайн-система, адаптивные сетки), онлайн-меню и умная корзина. Разработка при поддержке AI-инструментов',
