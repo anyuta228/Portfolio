@@ -98,6 +98,31 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
       file: './images/cases/ppkas/telegram/sticker_13_bear_market_hodler.png',
       title: 'Медвежий рынок / HODL',
       badge: 'Sticker // 13'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_14_diamond_hands.png',
+      title: 'Diamond Hands $PPKAS',
+      badge: 'Sticker // 14'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_15_kaspa_love.png',
+      title: 'Kaspa Love / В объятиях Луны',
+      badge: 'Sticker // 15'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_16_rocket_to_moon.png',
+      title: 'To the Moon / Взлет ракеты',
+      badge: 'Sticker // 16'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_17_kaspa_rock.png',
+      title: 'Kaspa Rock / Две планеты',
+      badge: 'Sticker // 17'
+    },
+    {
+      file: './images/cases/ppkas/telegram/sticker_18_euphoria_coins.png',
+      title: 'Эйфория / Монеты Kaspa',
+      badge: 'Sticker // 18'
     }
   ];
 
@@ -447,7 +472,7 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
             </div>
           </div>
 
-          {/* Subpart B: Loaded Sticker Pack (13 Stickers Rendered) */}
+          {/* Subpart B: Loaded Sticker Pack (18 Stickers Rendered) */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
@@ -455,16 +480,16 @@ export const PpkasCaseStudy: React.FC<PpkasCaseStudyProps> = ({
                   Активы сообщества
                 </span>
                 <h3 className="text-xl sm:text-2xl font-display font-medium text-white">
-                  Официальный пак стикеров PPKAS (13 ассетов • Векторная доводка)
+                  Официальный пак стикеров PPKAS (18 ассетов • Векторная доводка)
                 </h3>
               </div>
               <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] text-xs text-[#8AB4F8] font-sans">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Загружено 13 стикеров</span>
+                <span>Загружено 18 стикеров</span>
               </div>
             </div>
 
-            {/* 13-Sticker Grid */}
+            {/* 18-Sticker Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
               {STICKERS.map((st, idx) => (
                 <div
