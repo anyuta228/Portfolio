@@ -227,7 +227,7 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 items-start relative">
           
           {/* Left Column: Clean Structured Project Cards with Scroll Zone */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6">
             {filteredProjects.map((project) => {
               const isActive = project.id === activeProjectId;
               const meta = PROJECT_CLEAN_MAP[project.id] || {
@@ -255,7 +255,7 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                   onMouseEnter={() => handleCardMouseEnter(project.id)}
                   onMouseMove={(e) => handleCardMouseMove(project.id, e)}
                   onMouseLeave={handleCardMouseLeave}
-                  className={`p-8 sm:p-10 cursor-pointer group transition-all duration-300 bento-card flex flex-col justify-between ${
+                  className={`p-7 sm:p-8 cursor-pointer group transition-all duration-300 bento-card flex flex-col justify-between ${
                     isActive
                       ? 'bg-[#121622] opacity-100'
                       : 'bg-[#0e1118] opacity-90 hover:opacity-100'
@@ -264,37 +264,24 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                   <div className="relative z-10 flex flex-col justify-between h-full">
                     <div>
                       {/* Meta Context */}
-                      <div className="text-xs sm:text-sm font-sans tracking-wider text-white/50 uppercase mb-3">
+                      <div className="text-xs sm:text-sm font-sans tracking-wider text-white/50 uppercase mb-2.5">
                         <span>{meta.context} • {meta.discipline}</span>
                       </div>
 
                       {/* Project Title */}
-                      <h3 className="font-display font-medium text-2xl sm:text-3xl lg:text-[34px] text-white tracking-tight leading-tight mb-4 group-hover:text-white transition-colors">
+                      <h3 className="font-display font-medium text-2xl sm:text-3xl text-white tracking-tight leading-tight mb-3 group-hover:text-white transition-colors">
                         {meta.title}
                       </h3>
 
                       {/* Summary Description (2-3 lines living language, zero trailing periods) */}
-                      <p className="text-white/70 text-base sm:text-lg leading-relaxed font-sans mb-6">
+                      <p className="text-white/70 text-sm sm:text-base leading-relaxed font-sans mb-6">
                         {meta.summary}
                       </p>
-
-                      {/* Case Image Cover Slot (aspect-[16/10], rounded-2xl, hover scale-[1.02]) */}
-                      {project.coverImage && (
-                        <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden mb-6 relative bg-slate-950/60 select-none group/cover">
-                          <img
-                            src={project.coverImage}
-                            alt={meta.title}
-                            loading="lazy"
-                            className="w-full h-full object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                        </div>
-                      )}
                     </div>
 
                     {/* Clean Footer Row: Single Tag Line + Action Buttons */}
-                    <div className="pt-6 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4">
-                      <div className="text-sm font-sans text-white/50 tracking-wide">
+                    <div className="pt-5 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4">
+                      <div className="text-xs sm:text-sm font-sans text-white/50 tracking-wide">
                         {meta.tagsLine}
                       </div>
 
@@ -305,7 +292,7 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/12 text-white text-sm font-sans font-medium transition-all active:scale-95 border-0"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/12 text-white text-xs sm:text-sm font-sans font-medium transition-all active:scale-95 border-0"
                           >
                             <span>Перейти на сайт</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-white/70" />
@@ -318,30 +305,21 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                             e.stopPropagation();
                             onSelectProject(project);
                           }}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black text-sm font-sans font-medium hover:bg-white/90 transition-all active:scale-95 shadow-sm"
+                          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white text-black text-xs sm:text-sm font-sans font-medium hover:bg-white/90 transition-all active:scale-95 shadow-sm"
                         >
                           <span>Смотреть кейс</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </div>
-
-                    {/* Mobile Fallback Preview Inline (Only when no coverImage) */}
-                    {!project.coverImage && (
-                      <div className="lg:hidden mt-6 rounded-2xl overflow-hidden bg-slate-950/70">
-                        <div className="h-60 w-full relative">
-                          <ProjectPreview project={project} />
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Right Column: Kinetic Sticky Preview Stage (Desktop 5 cols, position: sticky; top: 6rem) */}
-          <div className="hidden lg:block lg:col-span-5 sticky top-24 h-fit">
+          {/* Right Column: Kinetic Sticky Preview Stage (Desktop 5 cols, position: sticky; top: 100px) */}
+          <div className="hidden lg:block lg:col-span-5 sticky top-[100px] h-fit">
             <div onMouseMove={handleMouseMove} className="bento-card p-6 bg-[#0e1118]">
               
               {/* Header Status Bar */}
@@ -357,21 +335,41 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                 </span>
               </div>
 
-              {/* Animated Visual Mockup Preview with Kinetic Parallax & Opacity */}
+              {/* Animated Visual Mockup Preview (aspect-[16/10]) with Kinetic Parallax & Opacity */}
               <div 
                 onClick={() => onSelectProject(activeProject)}
-                className="h-[420px] w-full rounded-2xl overflow-hidden cursor-pointer relative group bg-[#07090E] transition-transform duration-300 ease-out hover:scale-[1.006]"
+                className="aspect-[16/10] w-full rounded-2xl overflow-hidden cursor-pointer relative group bg-[#07090E] transition-transform duration-300 ease-out hover:scale-[1.01]"
               >
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeProject.id}
-                    initial={{ opacity: 0, scale: 0.985 }}
+                    initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.985 }}
-                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                     className="w-full h-full relative"
                   >
-                    <ProjectPreview project={activeProject} />
+                    {activeProject.coverImage ? (
+                      <div className="w-full h-full relative group/cover select-none">
+                        <img
+                          src={activeProject.coverImage}
+                          alt={activeMeta.title}
+                          className="w-full h-full object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                        
+                        <div className="absolute bottom-3.5 left-4 right-4 flex items-center justify-between text-xs font-sans text-white/80 pointer-events-none">
+                          <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/90 font-medium">
+                            {activeProject.originLabel}
+                          </span>
+                          <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/70">
+                            {activeProject.period}
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <ProjectPreview project={activeProject} />
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -385,7 +383,7 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ onSelectProjec
                 <button
                   type="button"
                   onClick={() => onSelectProject(activeProject)}
-                  className="px-5 py-2.5 rounded-full bg-white text-black text-sm font-sans font-medium hover:bg-white/90 transition-all flex items-center gap-1.5 active:scale-95"
+                  className="px-5 py-2.5 rounded-full bg-white text-black text-sm font-sans font-medium hover:bg-white/90 transition-all flex items-center gap-1.5 active:scale-95 shadow-sm"
                 >
                   <span>Детали</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
